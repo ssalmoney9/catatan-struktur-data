@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Materi Stack</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            Catatan Struktur Data
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="index.html#home">Home</a>
+            </li>
+
+            <li>
+                <a href="index.html#materi">Materi</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- CONTENT -->
+
+    <div class="content">
+
+        <h1>
+            Stack
+        </h1>
+
+        <p>
+            Stack adalah struktur data linear yang menggunakan konsep
+            LIFO (Last In First Out), yaitu data terakhir yang masuk
+            akan menjadi data pertama yang keluar.
+        </p>
+
+        <p>
+            Stack hanya memiliki satu pintu untuk proses
+            penambahan dan penghapusan data, yaitu bagian
+            TOP.
+        </p>
+
+        <h2>
+            Ilustrasi Stack
+        </h2>
+
+        <p>
+            Konsep stack mirip seperti tumpukan buku.
+            Buku terakhir yang ditaruh di atas akan menjadi
+            buku pertama yang diambil.
+        </p>
+
+        <h2>
+            Karakteristik Stack
+        </h2>
+
+        <ul>
+
+            <li>
+                Menggunakan konsep LIFO
+            </li>
+
+            <li>
+                Penambahan data dilakukan di TOP
+            </li>
+
+            <li>
+                Penghapusan data dilakukan di TOP
+            </li>
+
+            <li>
+                Data paling atas paling mudah diakses
+            </li>
+
+        </ul>
+
+        <h2>
+            Operasi Pada Stack
+        </h2>
+
+        <ul>
+
+            <li>
+                Push → menambahkan data
+            </li>
+
+            <li>
+                Pop → menghapus data teratas
+            </li>
+
+            <li>
+                Peek → melihat data teratas
+            </li>
+
+            <li>
+                isEmpty → mengecek stack kosong
+            </li>
+
+            <li>
+                Size → menghitung jumlah data
+            </li>
+
+        </ul>
+
+        <h2>
+            Contoh Implementasi Stack Python
+        </h2>
+
+<pre>
+def stack():
+    s = []
+    return s
+
+def push(s, data):
+    s.append(data)
+
+def pop(s):
+    data = s.pop()
+    return data
+
+def peek(s):
+    return s[len(s)-1]
+
+def isEmpty(s):
+    return s == []
+
+def size(s):
+    return len(s)
+
+# Program utama
+
+data = stack()
+
+push(data, 10)
+push(data, 20)
+push(data, 30)
+
+print(data)
+
+pop(data)
+
+print(data)
+</pre>
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+[10, 20, 30]
+
+[10, 20]
+</pre>
+
+        <h2>
+            Penjelasan Coding
+        </h2>
+
+        <p>
+            Fungsi push digunakan untuk menambahkan data
+            ke dalam stack menggunakan append().
+        </p>
+
+        <p>
+            Fungsi pop digunakan untuk menghapus data
+            paling atas menggunakan pop().
+        </p>
+
+        <p>
+            Fungsi peek digunakan untuk melihat elemen
+            teratas tanpa menghapus data.
+        </p>
+
+        <h2>
+            Study Kasus Stack
+        </h2>
+
+        <p>
+            Stack sering digunakan pada fitur Undo dan Redo
+            di aplikasi seperti Microsoft Word.
+        </p>
+
+        <p>
+            Ketika user mengetik sesuatu, data akan masuk
+            ke stack. Saat tombol Undo ditekan, maka data
+            terakhir akan dihapus terlebih dahulu.
+        </p>
+
+        <h2>
+            Contoh Study Kasus Undo
+        </h2>
+
+<pre>
+undo = []
+
+undo.append("Ketik A")
+undo.append("Ketik B")
+undo.append("Ketik C")
+
+print(undo)
+
+undo.pop()
+
+print(undo)
+</pre>
+
+        <h2>
+            Output Study Kasus
+        </h2>
+
+<pre>
+['Ketik A', 'Ketik B', 'Ketik C']
+
+['Ketik A', 'Ketik B']
+</pre>
+
+        <h2>
+            Kelebihan Stack
+        </h2>
+
+        <ul>
+
+            <li>
+                Struktur sederhana
+            </li>
+
+            <li>
+                Mudah diimplementasikan
+            </li>
+
+            <li>
+                Cepat untuk operasi push dan pop
+            </li>
+
+        </ul>
+
+        <h2>
+            Kekurangan Stack
+        </h2>
+
+        <ul>
+
+            <li>
+                Hanya bisa mengakses data teratas
+            </li>
+
+            <li>
+                Tidak fleksibel untuk pencarian data
+            </li>
+
+        </ul>
+
+        <a href="index.html#materi" class="back">
+            Kembali
+        </a>
+
+    </div>
+
+</body>
+</html>
