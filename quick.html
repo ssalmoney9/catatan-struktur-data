@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Materi Quick Sort</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            Catatan Struktur Data
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="index.html#home">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="index.html#materi">
+                    Materi
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- CONTENT -->
+
+    <div class="content">
+
+        <h1>
+            Quick Sort
+        </h1>
+
+        <p>
+            Quick Sort adalah algoritma sorting
+            dengan konsep divide and conquer.
+        </p>
+
+        <p>
+            Algoritma ini bekerja menggunakan
+            nilai pivot untuk membagi data
+            menjadi dua bagian.
+        </p>
+
+        <!-- KONSEP -->
+
+        <h2>
+            Konsep Quick Sort
+        </h2>
+
+        <p>
+            Data yang lebih kecil dari pivot
+            akan berada di sebelah kiri.
+        </p>
+
+        <p>
+            Data yang lebih besar dari pivot
+            akan berada di sebelah kanan.
+        </p>
+
+        <!-- VISUAL -->
+
+        <h2>
+            Visualisasi Quick Sort
+        </h2>
+
+        <p>
+            Visualisasi Quick Sort dapat
+            dilihat melalui website berikut.
+        </p>
+
+        <a
+            href="https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html"
+            target="_blank"
+            class="visual-btn"
+        >
+
+            Buka Visualisasi Quick Sort
+
+        </a>
+
+        <!-- PIVOT -->
+
+        <h2>
+            Konsep Pivot
+        </h2>
+
+        <p>
+            Pivot adalah nilai acuan
+            untuk membagi data.
+        </p>
+
+<pre>
+DATA
+
+[37,83,10,1,45,25,12,90,54]
+
+
+PIVOT = 37
+
+
+KIRI
+
+[12,10,1,25]
+
+
+KANAN
+
+[83,45,90,54]
+</pre>
+
+        <!-- PARTISI -->
+
+        <h2>
+            Partisi Data
+        </h2>
+
+        <p>
+            Proses partisi digunakan
+            untuk memisahkan data
+            berdasarkan pivot.
+        </p>
+
+        <!-- ILUSTRASI -->
+
+        <h2>
+            Ilustrasi Partisi
+        </h2>
+
+<pre>
+DATA
+
+[37,83,10,1,45,25,12,90,54]
+
+
+STEP 1
+
+10 < 37
+
+[37,10,83,1,45,25,12,90,54]
+
+
+STEP 2
+
+1 < 37
+
+[37,10,1,83,45,25,12,90,54]
+
+
+STEP 3
+
+25 < 37
+
+[37,10,1,25,45,83,12,90,54]
+
+
+STEP 4
+
+12 < 37
+
+[37,10,1,25,12,83,45,90,54]
+
+
+STEP 5
+
+Pivot ditukar
+
+[12,10,1,25,37,83,45,90,54]
+</pre>
+
+        <!-- ALGORITMA -->
+
+        <h2>
+            Algoritma Quick Sort
+        </h2>
+
+<pre>
+1. Tentukan pivot
+
+2. Partisi data
+
+3. Data kecil ke kiri
+
+4. Data besar ke kanan
+
+5. Lakukan partisi kembali
+
+6. Ulangi sampai data terurut
+</pre>
+
+        <!-- PARTITION -->
+
+        <h2>
+            Program Partition
+        </h2>
+
+<pre>
+def partition(A,p,q):
+
+    x = A[p]
+
+    i = p
+
+    for j in range(p+1, q+1):
+
+        if A[j] <= x:
+
+            i = i + 1
+
+            A[i], A[j] = A[j], A[i]
+
+    A[p], A[i] = A[i], A[p]
+
+    return i
+
+a = [37,83,10,1,45,25,12,90,54]
+
+print(
+    partition(a,0,len(a)-1)
+)
+
+print(a)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+4
+
+[12,10,1,25,37,83,45,90,54]
+</pre>
+
+        <!-- PENJELASAN -->
+
+        <h2>
+            Penjelasan Coding
+        </h2>
+
+        <p>
+            Variabel x digunakan
+            sebagai pivot.
+        </p>
+
+        <p>
+            Variabel i digunakan
+            untuk indeks data kecil.
+        </p>
+
+        <p>
+            Jika data lebih kecil
+            dari pivot, maka data ditukar.
+        </p>
+
+        <!-- REKURSIF -->
+
+        <h2>
+            Quick Sort Rekursif
+        </h2>
+
+        <p>
+            Quick Sort menggunakan
+            rekursif untuk melakukan
+            partisi berulang.
+        </p>
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Quick Sort
+        </h2>
+
+<pre>
+def partition(A,p,q):
+
+    x = A[p]
+
+    i = p
+
+    for j in range(p+1, q+1):
+
+        if A[j] <= x:
+
+            i = i + 1
+
+            A[i], A[j] = A[j], A[i]
+
+    A[p], A[i] = A[i], A[p]
+
+    return i
+
+
+def Quicksort(A,p,q):
+
+    if p < q:
+
+        r = partition(A,p,q)
+
+        Quicksort(A,p,r-1)
+
+        Quicksort(A,r+1,q)
+
+
+a = [37,83,10,1,45,25,12,90,54]
+
+Quicksort(a,0,len(a)-1)
+
+print(a)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+[1,10,12,25,37,45,54,83,90]
+</pre>
+
+        <!-- STEP -->
+
+        <h2>
+            Quick Sort Step by Step
+        </h2>
+
+<pre>
+DATA AWAL
+
+[37,83,10,1,45,25,12,90,54]
+
+
+PARTISI 1
+
+[12,10,1,25,37,83,45,90,54]
+
+
+PARTISI 2
+
+[1,10,12,25,37,83,45,90,54]
+
+
+PARTISI 3
+
+[1,10,12,25,37,54,45,83,90]
+
+
+HASIL
+
+[1,10,12,25,37,45,54,83,90]
+</pre>
+
+        <!-- COMBINE -->
+
+        <h2>
+            Combine Pada Quick Sort
+        </h2>
+
+        <p>
+            Tahap combine dilakukan
+            dengan partisi berulang
+            sampai seluruh data terurut.
+        </p>
+
+        <!-- PERBANDINGAN -->
+
+        <h2>
+            Merge Sort vs Quick Sort
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Merge Sort
+                </th>
+
+                <th>
+                    Quick Sort
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Menggunakan merge
+                </td>
+
+                <td>
+                    Menggunakan pivot
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Stabil
+                </td>
+
+                <td>
+                    Tidak stabil
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Memori lebih besar
+                </td>
+
+                <td>
+                    Lebih hemat memori
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- STUDY -->
+
+        <h2>
+            Study Kasus Quick Sort
+        </h2>
+
+        <p>
+            Quick Sort digunakan
+            untuk mengurutkan data
+            nilai siswa dengan cepat.
+        </p>
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Study Kasus
+        </h2>
+
+<pre>
+nilai = [88,75,90,60,95]
+
+Quicksort(
+    nilai,
+    0,
+    len(nilai)-1
+)
+
+print(nilai)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+[60,75,88,90,95]
+</pre>
+
+        <!-- KELEBIHAN -->
+
+        <h2>
+            Kelebihan dan Kekurangan
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Kelebihan
+                </th>
+
+                <th>
+                    Kekurangan
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Cepat untuk data besar
+                </td>
+
+                <td>
+                    Worst case O(n²)
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Hemat memori
+                </td>
+
+                <td>
+                    Bergantung pada pivot
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Efisien
+                </td>
+
+                <td>
+                    Tidak stabil
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- KOMPLEKSITAS -->
+
+        <h2>
+            Kompleksitas Quick Sort
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Kasus
+                </th>
+
+                <th>
+                    Kompleksitas
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Best Case
+                </td>
+
+                <td>
+                    O(n log n)
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Average Case
+                </td>
+
+                <td>
+                    O(n log n)
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Worst Case
+                </td>
+
+                <td>
+                    O(n²)
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- BUTTON -->
+
+        <a href="index.html#materi" class="back">
+
+            Kembali
+
+        </a>
+
+    </div>
+
+</body>
+</html>

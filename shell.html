@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Materi Shell Sort</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            Catatan Struktur Data
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="index.html#home">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="index.html#materi">
+                    Materi
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- CONTENT -->
+
+    <div class="content">
+
+        <h1>
+            Shell Sort
+        </h1>
+
+        <p>
+            Shell Sort adalah algoritma
+            sorting yang merupakan
+            pengembangan dari
+            Insertion Sort.
+        </p>
+
+        <p>
+            Shell Sort bekerja dengan
+            membandingkan data berdasarkan
+            jarak tertentu yang disebut gap.
+        </p>
+
+        <!-- KONSEP -->
+
+        <h2>
+            Konsep Shell Sort
+        </h2>
+
+        <p>
+            Pada awal proses,
+            data dibandingkan menggunakan
+            gap besar.
+        </p>
+
+        <p>
+            Gap akan terus diperkecil
+            sampai menjadi 1.
+        </p>
+
+        <!-- VISUAL -->
+
+        <h2>
+            Visualisasi Shell Sort
+        </h2>
+
+        <p>
+            Visualisasi Shell Sort dapat
+            dilihat melalui website berikut.
+        </p>
+
+        <a
+            href="https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html"
+            target="_blank"
+            class="visual-btn"
+        >
+
+            Buka Visualisasi Shell Sort
+
+        </a>
+
+        <!-- GAP -->
+
+        <h2>
+            Konsep Gap
+        </h2>
+
+        <p>
+            Gap adalah jarak antar data
+            yang akan dibandingkan.
+        </p>
+
+<pre>
+DATA
+
+[35,33,42,10,14,19,27,44]
+
+
+GAP = 4
+
+
+35 dibandingkan 14
+
+33 dibandingkan 19
+
+42 dibandingkan 27
+
+10 dibandingkan 44
+</pre>
+
+        <!-- ILUSTRASI -->
+
+        <h2>
+            Ilustrasi Shell Sort
+        </h2>
+
+<pre>
+DATA AWAL
+
+[35,33,42,10,14,19,27,44]
+
+
+GAP = 4
+
+[14,19,27,10,35,33,42,44]
+
+
+GAP = 2
+
+[14,10,27,19,35,33,42,44]
+
+
+GAP = 1
+
+[10,14,19,27,33,35,42,44]
+</pre>
+
+        <!-- KARAKTERISTIK -->
+
+        <h2>
+            Karakteristik Shell Sort
+        </h2>
+
+        <ul>
+
+            <li>
+                Pengembangan insertion sort
+            </li>
+
+            <li>
+                Menggunakan gap
+            </li>
+
+            <li>
+                Sorting lebih cepat
+            </li>
+
+            <li>
+                Cocok untuk data sedang
+            </li>
+
+        </ul>
+
+        <!-- ALGORITMA -->
+
+        <h2>
+            Algoritma Shell Sort
+        </h2>
+
+<pre>
+1. Tentukan gap
+
+2. Bandingkan data berdasarkan gap
+
+3. Tukar jika salah urutan
+
+4. Kecilkan gap
+
+5. Ulangi sampai gap = 1
+</pre>
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Shell Sort
+        </h2>
+
+<pre>
+def shellSort(data):
+
+    gap = len(data) // 2
+
+    while gap > 0:
+
+        for i in range(gap, len(data)):
+
+            temp = data[i]
+
+            j = i
+
+            while (
+                j >= gap
+                and data[j-gap] > temp
+            ):
+
+                data[j] = data[j-gap]
+
+                j = j-gap
+
+            data[j] = temp
+
+        gap = gap // 2
+
+data = [35,33,42,10,14,19,27,44]
+
+shellSort(data)
+
+print(data)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+[10,14,19,27,33,35,42,44]
+</pre>
+
+        <!-- PENJELASAN -->
+
+        <h2>
+            Penjelasan Coding
+        </h2>
+
+        <p>
+            Variabel gap digunakan
+            untuk menentukan jarak
+            perbandingan data.
+        </p>
+
+        <p>
+            Gap awal bernilai setengah
+            dari jumlah data.
+        </p>
+
+        <p>
+            Setelah satu proses selesai,
+            gap akan diperkecil.
+        </p>
+
+        <!-- STEP -->
+
+        <h2>
+            Shell Sort Step by Step
+        </h2>
+
+<pre>
+STEP 1
+
+Gap = 4
+
+
+STEP 2
+
+Gap = 2
+
+
+STEP 3
+
+Gap = 1
+
+
+HASIL
+
+[10,14,19,27,33,35,42,44]
+</pre>
+
+        <!-- PERBANDINGAN -->
+
+        <h2>
+            Insertion Sort vs Shell Sort
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Insertion Sort
+                </th>
+
+                <th>
+                    Shell Sort
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Tidak menggunakan gap
+                </td>
+
+                <td>
+                    Menggunakan gap
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Lebih lambat
+                </td>
+
+                <td>
+                    Lebih cepat
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Cocok data kecil
+                </td>
+
+                <td>
+                    Cocok data sedang
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- STUDY -->
+
+        <h2>
+            Study Kasus Shell Sort
+        </h2>
+
+        <p>
+            Shell Sort dapat digunakan
+            untuk mengurutkan nilai siswa
+            dengan lebih cepat dibanding
+            insertion sort biasa.
+        </p>
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Study Kasus
+        </h2>
+
+<pre>
+nilai = [88,75,90,60,95]
+
+shellSort(nilai)
+
+print(nilai)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+[60,75,88,90,95]
+</pre>
+
+        <!-- KELEBIHAN -->
+
+        <h2>
+            Kelebihan dan Kekurangan
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Kelebihan
+                </th>
+
+                <th>
+                    Kekurangan
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Lebih cepat dari insertion sort
+                </td>
+
+                <td>
+                    Tidak stabil
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Mudah diimplementasikan
+                </td>
+
+                <td>
+                    Pemilihan gap mempengaruhi performa
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Efisien untuk data sedang
+                </td>
+
+                <td>
+                    Masih kalah dari quick sort
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- KOMPLEKSITAS -->
+
+        <h2>
+            Kompleksitas Shell Sort
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Kasus
+                </th>
+
+                <th>
+                    Kompleksitas
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Best Case
+                </td>
+
+                <td>
+                    O(n log n)
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Average Case
+                </td>
+
+                <td>
+                    O(n¹·⁵)
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Worst Case
+                </td>
+
+                <td>
+                    O(n²)
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- BUTTON -->
+
+        <a href="index.html#materi" class="back">
+
+            Kembali
+
+        </a>
+
+    </div>
+
+</body>
+</html>

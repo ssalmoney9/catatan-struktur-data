@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#0f172a;
+    color:white;
+}
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#111827;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 5px 20px rgba(0,0,0,0.3);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:600;
+    color:#60a5fa;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:17px;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#60a5fa;
+}
+
+/* HERO */
+
+.hero{
+    width:100%;
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0 8%;
+    background:linear-gradient(to right,#0f172a,#1e293b);
+}
+
+.hero-text{
+    max-width:700px;
+    text-align:center;
+}
+
+.hero-text h1{
+    font-size:65px;
+    line-height:1.2;
+    margin-bottom:25px;
+}
+
+.hero-text p{
+    color:#cbd5e1;
+    line-height:1.8;
+    font-size:18px;
+    margin-bottom:35px;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 28px;
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    border-radius:12px;
+    transition:0.3s;
+    font-weight:500;
+}
+
+.btn:hover{
+    background:#1d4ed8;
+    transform:translateY(-3px);
+}
+
+/* MATERI */
+
+.materi{
+    padding:80px 8%;
+}
+
+.materi h2{
+    text-align:center;
+    font-size:45px;
+    margin-bottom:50px;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#111827;
+    padding:30px;
+    border-radius:20px;
+    border:1px solid #1e293b;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 10px 30px rgba(37,99,235,0.3);
+}
+
+.card h3{
+    font-size:24px;
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#94a3b8;
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+.card a{
+    display:inline-block;
+    padding:12px 20px;
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    transition:0.3s;
+}
+
+.card a:hover{
+    background:#1d4ed8;
+}
+
+/* CONTENT */
+
+.content{
+    width:90%;
+    max-width:1000px;
+    margin:50px auto;
+    background:#111827;
+    padding:40px;
+    border-radius:25px;
+    border:1px solid #1e293b;
+}
+
+.content h1{
+    font-size:50px;
+    margin-bottom:25px;
+}
+
+.content h2{
+    margin-top:35px;
+    margin-bottom:15px;
+    color:#60a5fa;
+}
+
+.content p{
+    color:#cbd5e1;
+    line-height:1.9;
+    margin-bottom:20px;
+}
+
+.content ul{
+    margin-left:25px;
+    margin-top:15px;
+    margin-bottom:20px;
+}
+
+.content ul li{
+    margin-bottom:12px;
+    color:#cbd5e1;
+    line-height:1.7;
+}
+
+/* CODE */
+
+pre{
+    background:#020617;
+    color:#22c55e;
+    padding:30px;
+    border-radius:20px;
+    overflow-x:auto;
+    font-size:16px;
+    line-height:1.8;
+    margin-top:20px;
+    margin-bottom:20px;
+    border:1px solid #1e293b;
+}
+
+/* TABLE */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:25px;
+    overflow:hidden;
+    border-radius:15px;
+}
+
+table th{
+    background:#2563eb;
+    padding:16px;
+    border:1px solid #1e293b;
+    font-size:17px;
+}
+
+table td{
+    padding:16px;
+    border:1px solid #1e293b;
+    background:#111827;
+    color:#cbd5e1;
+    line-height:1.7;
+}
+
+/* VISUAL BUTTON */
+
+.visual-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:15px 25px;
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    border-radius:12px;
+    transition:0.3s;
+    font-weight:500;
+}
+
+.visual-btn:hover{
+    background:#1d4ed8;
+    transform:translateY(-3px);
+}
+
+/* BACK BUTTON */
+
+.back{
+    display:inline-block;
+    margin-top:35px;
+    padding:14px 24px;
+    background:#ef4444;
+    color:white;
+    text-decoration:none;
+    border-radius:12px;
+    transition:0.3s;
+}
+
+.back:hover{
+    background:#dc2626;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    nav{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    nav ul{
+        gap:15px;
+    }
+
+    .hero-text h1{
+        font-size:45px;
+    }
+
+    .content{
+        padding:25px;
+    }
+
+    .content h1{
+        font-size:38px;
+    }
+
+}

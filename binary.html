@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Materi Binary Search</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            Catatan Struktur Data
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="index.html#home">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="index.html#materi">
+                    Materi
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- CONTENT -->
+
+    <div class="content">
+
+        <h1>
+            Binary Search
+        </h1>
+
+        <p>
+            Binary Search adalah algoritma
+            pencarian data yang bekerja dengan
+            membagi data menjadi dua bagian.
+        </p>
+
+        <p>
+            Binary Search hanya dapat digunakan
+            pada data yang sudah terurut.
+        </p>
+
+        <!-- KONSEP -->
+
+        <h2>
+            Konsep Binary Search
+        </h2>
+
+        <p>
+            Pencarian dilakukan pada data
+            bagian tengah terlebih dahulu.
+        </p>
+
+        <p>
+            Jika data lebih kecil dari nilai tengah,
+            maka pencarian dilakukan ke kiri.
+        </p>
+
+        <p>
+            Jika data lebih besar,
+            maka pencarian dilakukan ke kanan.
+        </p>
+
+        <!-- VISUAL -->
+
+        <h2>
+            Visualisasi Binary Search
+        </h2>
+
+        <p>
+            Visualisasi Binary Search dapat
+            dilihat melalui visualizer berikut.
+        </p>
+
+        <a
+            href="https://www.cs.usfca.edu/~galles/visualization/Search.html"
+            target="_blank"
+            class="visual-btn"
+        >
+
+            Buka Visualisasi Binary Search
+
+        </a>
+
+        <!-- ILUSTRASI -->
+
+        <h2>
+            Ilustrasi Binary Search
+        </h2>
+
+<pre>
+DATA
+
+[4, 6, 10, 34, 56, 78, 99]
+
+
+MENCARI 34
+
+
+STEP 1
+
+Middle = 34
+
+
+34 = ditemukan
+</pre>
+
+        <!-- ILUSTRASI 2 -->
+
+        <h2>
+            Ilustrasi Binary Search Data Tidak Ada
+        </h2>
+
+<pre>
+DATA
+
+[4, 6, 10, 34, 56, 78, 99]
+
+
+MENCARI 50
+
+
+STEP 1
+
+Middle = 34
+
+50 > 34
+
+
+STEP 2
+
+[56, 78, 99]
+
+
+Middle = 78
+
+50 < 78
+
+
+STEP 3
+
+[56]
+
+
+50 < 56
+
+
+STOP
+
+Data tidak ditemukan
+</pre>
+
+        <!-- KARAKTERISTIK -->
+
+        <h2>
+            Karakteristik Binary Search
+        </h2>
+
+        <ul>
+
+            <li>
+                Data harus terurut
+            </li>
+
+            <li>
+                Membagi data menjadi dua bagian
+            </li>
+
+            <li>
+                Pencarian lebih cepat
+            </li>
+
+            <li>
+                Kompleksitas lebih kecil
+            </li>
+
+        </ul>
+
+        <!-- ALGORITMA -->
+
+        <h2>
+            Algoritma Binary Search
+        </h2>
+
+<pre>
+1. Tentukan indeks tengah
+
+2. Bandingkan data dengan middle
+
+3. Jika sama → data ditemukan
+
+4. Jika lebih kecil → cari kiri
+
+5. Jika lebih besar → cari kanan
+
+6. Ulangi sampai data ditemukan
+</pre>
+
+        <!-- ITERATIF -->
+
+        <h2>
+            Program Binary Search Iteratif
+        </h2>
+
+<pre>
+def binarySearch(listData, data):
+
+    first = 0
+
+    last = len(listData) - 1
+
+    found = False
+
+    while first <= last and not found:
+
+        midpoint = (first + last) // 2
+
+        if listData[midpoint] == data:
+
+            found = True
+
+        else:
+
+            if data < listData[midpoint]:
+
+                last = midpoint - 1
+
+            else:
+
+                first = midpoint + 1
+
+    return found
+
+a = [4,6,10,34,56,78,99]
+
+print(
+    binarySearch(a,34)
+)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+True
+</pre>
+
+        <!-- PENJELASAN -->
+
+        <h2>
+            Penjelasan Coding
+        </h2>
+
+        <p>
+            Variabel midpoint digunakan untuk
+            mencari indeks tengah.
+        </p>
+
+        <p>
+            Jika data lebih kecil dari midpoint,
+            maka pencarian pindah ke kiri.
+        </p>
+
+        <p>
+            Jika data lebih besar,
+            maka pencarian pindah ke kanan.
+        </p>
+
+        <!-- INDEX -->
+
+        <h2>
+            Binary Search Mengembalikan Index
+        </h2>
+
+<pre>
+def binarySearch(listData, data):
+
+    first = 0
+
+    last = len(listData) - 1
+
+    while first <= last:
+
+        midpoint = (first + last) // 2
+
+        if listData[midpoint] == data:
+
+            return midpoint
+
+        elif data < listData[midpoint]:
+
+            last = midpoint - 1
+
+        else:
+
+            first = midpoint + 1
+
+    return "Data tidak ada"
+
+a = [4,6,10,34,56,78,99]
+
+print(
+    binarySearch(a,56)
+)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+4
+</pre>
+
+        <!-- REKURSIF -->
+
+        <h2>
+            Binary Search Rekursif
+        </h2>
+
+<pre>
+def binarySearch2(listData, data):
+
+    if len(listData) == 0:
+
+        return False
+
+    else:
+
+        midpoint = len(listData) // 2
+
+        if listData[midpoint] == data:
+
+            return True
+
+        else:
+
+            if data < listData[midpoint]:
+
+                return binarySearch2(
+                    listData[:midpoint],
+                    data
+                )
+
+            else:
+
+                return binarySearch2(
+                    listData[midpoint+1:],
+                    data
+                )
+
+a = [4,6,10,34,56,78,99]
+
+print(
+    binarySearch2(a,78)
+)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+True
+</pre>
+
+        <!-- PERBANDINGAN -->
+
+        <h2>
+            Sequential Search vs Binary Search
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Sequential Search
+                </th>
+
+                <th>
+                    Binary Search
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Tidak perlu data terurut
+                </td>
+
+                <td>
+                    Data harus terurut
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Pencarian satu per satu
+                </td>
+
+                <td>
+                    Membagi data menjadi dua
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Lebih lambat
+                </td>
+
+                <td>
+                    Lebih cepat
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- STUDY KASUS -->
+
+        <h2>
+            Study Kasus Binary Search
+        </h2>
+
+        <p>
+            Binary Search digunakan untuk
+            mencari data nilai siswa
+            pada list yang sudah terurut.
+        </p>
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Study Kasus
+        </h2>
+
+<pre>
+nilai = [60,70,80,90,100]
+
+cari = 90
+
+first = 0
+
+last = len(nilai)-1
+
+found = False
+
+while first <= last and not found:
+
+    middle = (first + last) // 2
+
+    if nilai[middle] == cari:
+
+        found = True
+
+    else:
+
+        if cari < nilai[middle]:
+
+            last = middle - 1
+
+        else:
+
+            first = middle + 1
+
+print(found)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+True
+</pre>
+
+        <!-- KELEBIHAN -->
+
+        <h2>
+            Kelebihan dan Kekurangan
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Kelebihan
+                </th>
+
+                <th>
+                    Kekurangan
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Pencarian sangat cepat
+                </td>
+
+                <td>
+                    Data harus terurut
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Efisien untuk data besar
+                </td>
+
+                <td>
+                    Implementasi lebih kompleks
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Kompleksitas kecil
+                </td>
+
+                <td>
+                    Tidak cocok untuk data acak
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- KOMPLEKSITAS -->
+
+        <h2>
+            Kompleksitas Binary Search
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Kasus
+                </th>
+
+                <th>
+                    Kompleksitas
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Best Case
+                </td>
+
+                <td>
+                    O(1)
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Average Case
+                </td>
+
+                <td>
+                    O(log n)
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Worst Case
+                </td>
+
+                <td>
+                    O(log n)
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- BUTTON -->
+
+        <a href="index.html#materi" class="back">
+
+            Kembali
+
+        </a>
+
+    </div>
+
+</body>
+</html>

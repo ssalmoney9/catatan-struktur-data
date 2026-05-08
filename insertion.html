@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Materi Insertion Sort</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            Catatan Struktur Data
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="index.html#home">Home</a>
+            </li>
+
+            <li>
+                <a href="index.html#materi">Materi</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- CONTENT -->
+
+    <div class="content">
+
+        <h1>
+            Insertion Sort
+        </h1>
+
+        <p>
+            Insertion Sort adalah algoritma sorting
+            yang bekerja dengan cara menyisipkan
+            data pada posisi yang sesuai.
+        </p>
+
+        <p>
+            Algoritma ini menganggap sebagian data
+            di sebelah kiri sudah dalam keadaan
+            terurut.
+        </p>
+
+        <!-- KONSEP -->
+
+        <h2>
+            Konsep Insertion Sort
+        </h2>
+
+        <p>
+            Data berikutnya akan dibandingkan
+            dengan data yang sudah terurut,
+            kemudian disisipkan pada posisi yang tepat.
+        </p>
+
+        <p>
+            Proses dilakukan berulang hingga
+            seluruh data terurut.
+        </p>
+
+        <!-- VISUAL -->
+
+        <h2>
+            Visualisasi Insertion Sort
+        </h2>
+
+        <p>
+            Visualisasi Insertion Sort dapat dilihat
+            melalui website visualizer berikut.
+        </p>
+
+        <a
+            href="https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html"
+            target="_blank"
+            class="visual-btn"
+        >
+
+            Buka Visualisasi Insertion Sort
+
+        </a>
+
+        <!-- ILUSTRASI -->
+
+        <h2>
+            Ilustrasi Insertion Sort
+        </h2>
+
+<pre>
+DATA AWAL
+
+[7, 2, 5, 10, 1]
+
+
+ITERASI 1
+
+key = 2
+
+[2, 7, 5, 10, 1]
+
+
+ITERASI 2
+
+key = 5
+
+[2, 5, 7, 10, 1]
+
+
+ITERASI 3
+
+key = 10
+
+[2, 5, 7, 10, 1]
+
+
+ITERASI 4
+
+key = 1
+
+[1, 2, 5, 7, 10]
+</pre>
+
+        <!-- KARAKTERISTIK -->
+
+        <h2>
+            Karakteristik Insertion Sort
+        </h2>
+
+        <ul>
+
+            <li>
+                Menggunakan konsep penyisipan data
+            </li>
+
+            <li>
+                Sebagian data dianggap sudah terurut
+            </li>
+
+            <li>
+                Cocok untuk data kecil
+            </li>
+
+            <li>
+                Stabil dalam sorting
+            </li>
+
+        </ul>
+
+        <!-- ALGORITMA -->
+
+        <h2>
+            Algoritma Insertion Sort
+        </h2>
+
+<pre>
+1. Ambil data sebagai key
+
+2. Bandingkan dengan data sebelumnya
+
+3. Geser data lebih besar
+
+4. Sisipkan key pada posisi tepat
+
+5. Ulangi sampai seluruh data terurut
+</pre>
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Insertion Sort
+        </h2>
+
+<pre>
+data = [7,2,5,10,1]
+
+print("Data Awal =", data)
+
+for i in range(1, len(data)):
+
+    key = data[i]
+
+    j = i - 1
+
+    while j >= 0 and key < data[j]:
+
+        data[j+1] = data[j]
+
+        j -= 1
+
+    data[j+1] = key
+
+print("Data Urut =", data)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+Data Awal = [7, 2, 5, 10, 1]
+
+Data Urut = [1, 2, 5, 7, 10]
+</pre>
+
+        <!-- PENJELASAN -->
+
+        <h2>
+            Penjelasan Coding
+        </h2>
+
+        <p>
+            Variabel key digunakan untuk menyimpan
+            data yang akan disisipkan.
+        </p>
+
+        <p>
+            Perulangan while digunakan untuk
+            membandingkan key dengan data sebelumnya.
+        </p>
+
+        <p>
+            Jika key lebih kecil, maka data digeser
+            ke kanan.
+        </p>
+
+        <!-- ITERASI -->
+
+        <h2>
+            Visualisasi Iterasi
+        </h2>
+
+<pre>
+Iterasi 1
+
+[2, 7, 5, 10, 1]
+
+
+Iterasi 2
+
+[2, 5, 7, 10, 1]
+
+
+Iterasi 3
+
+[2, 5, 7, 10, 1]
+
+
+Iterasi 4
+
+[1, 2, 5, 7, 10]
+</pre>
+
+        <!-- STUDY KASUS -->
+
+        <h2>
+            Study Kasus Insertion Sort
+        </h2>
+
+        <p>
+            Insertion Sort dapat digunakan untuk
+            mengurutkan nilai ujian siswa dari
+            terkecil ke terbesar.
+        </p>
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Study Kasus
+        </h2>
+
+<pre>
+nilai = [80,70,90,60,100]
+
+for i in range(1, len(nilai)):
+
+    key = nilai[i]
+
+    j = i - 1
+
+    while j >= 0 and key < nilai[j]:
+
+        nilai[j+1] = nilai[j]
+
+        j -= 1
+
+    nilai[j+1] = key
+
+print(nilai)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+[60, 70, 80, 90, 100]
+</pre>
+
+        <!-- TABEL -->
+
+        <h2>
+            Kelebihan dan Kekurangan
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Kelebihan
+                </th>
+
+                <th>
+                    Kekurangan
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Mudah dipahami
+                </td>
+
+                <td>
+                    Lambat untuk data besar
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Stabil dalam sorting
+                </td>
+
+                <td>
+                    Banyak pergeseran data
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Cocok untuk data kecil
+                </td>
+
+                <td>
+                    Kompleksitas O(n²)
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- KOMPLEKSITAS -->
+
+        <h2>
+            Kompleksitas Insertion Sort
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Kasus
+                </th>
+
+                <th>
+                    Kompleksitas
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Best Case
+                </td>
+
+                <td>
+                    O(n)
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Average Case
+                </td>
+
+                <td>
+                    O(n²)
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Worst Case
+                </td>
+
+                <td>
+                    O(n²)
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- BUTTON -->
+
+        <a href="index.html#materi" class="back">
+            Kembali
+        </a>
+
+    </div>
+
+</body>
+</html>

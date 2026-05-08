@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Materi Linked List</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            Catatan Struktur Data
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="index.html#home">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="index.html#materi">
+                    Materi
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- CONTENT -->
+
+    <div class="content">
+
+        <h1>
+            Linked List
+        </h1>
+
+        <p>
+            Linked List adalah struktur data
+            dinamis yang terdiri dari
+            kumpulan node yang saling terhubung.
+        </p>
+
+        <p>
+            Setiap node memiliki data
+            dan pointer menuju node berikutnya.
+        </p>
+
+        <!-- KONSEP -->
+
+        <h2>
+            Konsep Linked List
+        </h2>
+
+        <p>
+            Data pada linked list
+            tidak disimpan secara berurutan
+            di memory.
+        </p>
+
+        <p>
+            Setiap node memiliki link
+            menuju node selanjutnya.
+        </p>
+
+        <!-- VISUAL -->
+
+        <h2>
+            Visualisasi Linked List
+        </h2>
+
+        <p>
+            Visualisasi Linked List dapat
+            dilihat melalui website berikut.
+        </p>
+
+        <a
+            href="https://www.cs.usfca.edu/~galles/visualization/LinkedList.html"
+            target="_blank"
+            class="visual-btn"
+        >
+
+            Buka Visualisasi Linked List
+
+        </a>
+
+        <!-- NODE -->
+
+        <h2>
+            Struktur Node
+        </h2>
+
+<pre>
+┌─────────┬─────────┐
+│  DATA   │  NEXT   │
+└─────────┴─────────┘
+</pre>
+
+        <p>
+            Node memiliki dua bagian:
+        </p>
+
+        <ul>
+
+            <li>
+                Data → nilai node
+            </li>
+
+            <li>
+                Next → alamat node berikutnya
+            </li>
+
+        </ul>
+
+        <!-- ILUSTRASI -->
+
+        <h2>
+            Ilustrasi Linked List
+        </h2>
+
+<pre>
+HEAD
+
+↓
+
+[10|•] → [25|•] → [30|•] → None
+</pre>
+
+        <!-- KARAKTERISTIK -->
+
+        <h2>
+            Karakteristik Linked List
+        </h2>
+
+        <ul>
+
+            <li>
+                Bersifat dinamis
+            </li>
+
+            <li>
+                Tidak membutuhkan ukuran tetap
+            </li>
+
+            <li>
+                Data terhubung dengan pointer
+            </li>
+
+            <li>
+                Mudah menambah data
+            </li>
+
+        </ul>
+
+        <!-- NODE CLASS -->
+
+        <h2>
+            Class Node
+        </h2>
+
+        <p>
+            Node digunakan untuk
+            menyimpan data dan next.
+        </p>
+
+<pre>
+class Node:
+
+    def __init__(self, init_data):
+
+        self.data = init_data
+
+        self.next = None
+</pre>
+
+        <!-- METHOD -->
+
+        <h2>
+            Method Pada Node
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Method
+                </th>
+
+                <th>
+                    Fungsi
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    getData()
+                </td>
+
+                <td>
+                    Mengambil data node
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    getNext()
+                </td>
+
+                <td>
+                    Mengambil next node
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    setData()
+                </td>
+
+                <td>
+                    Mengubah data node
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    setNext()
+                </td>
+
+                <td>
+                    Menghubungkan node
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Class Node
+        </h2>
+
+<pre>
+class Node:
+
+    def __init__(self, init_data):
+
+        self.data = init_data
+
+        self.next = None
+
+    def getData(self):
+
+        return self.data
+
+    def getNext(self):
+
+        return self.next
+
+    def setData(self, newdata):
+
+        self.data = newdata
+
+    def setNext(self, new_next):
+
+        self.next = new_next
+</pre>
+
+        <!-- CONTOH -->
+
+        <h2>
+            Contoh Node
+        </h2>
+
+<pre>
+a = Node(93)
+
+b = Node(20)
+
+a.setNext(b)
+
+print(a.getData())
+
+print(a.getNext())
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+93
+
+&lt;__main__.Node object&gt;
+</pre>
+
+        <!-- LINKEDLIST -->
+
+        <h2>
+            Class Linked List
+        </h2>
+
+        <p>
+            Linked List memiliki pointer
+            head untuk menunjuk node pertama.
+        </p>
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Linked List
+        </h2>
+
+<pre>
+class LinkedList:
+
+    def __init__(self):
+
+        self.head = None
+
+    def isEmpty(self):
+
+        return self.head == None
+</pre>
+
+        <!-- ILUSTRASI -->
+
+        <h2>
+            Ilustrasi Head
+        </h2>
+
+<pre>
+HEAD
+
+↓
+
+None
+</pre>
+
+        <!-- ADD -->
+
+        <h2>
+            Menambah Data Linked List
+        </h2>
+
+        <p>
+            Data baru ditambahkan
+            di bagian awal linked list.
+        </p>
+
+<pre>
+HEAD
+
+↓
+
+[32|•] → [30|•] → [25|•]
+</pre>
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Add Data
+        </h2>
+
+<pre>
+def add(self, item):
+
+    temp = Node(item)
+
+    temp.setNext(self.head)
+
+    self.head = temp
+</pre>
+
+        <!-- FULL -->
+
+        <h2>
+            Program Linked List Lengkap
+        </h2>
+
+<pre>
+class Node:
+
+    def __init__(self, init_data):
+
+        self.data = init_data
+
+        self.next = None
+
+
+class LinkedList:
+
+    def __init__(self):
+
+        self.head = None
+
+    def isEmpty(self):
+
+        return self.head == None
+
+    def add(self, item):
+
+        temp = Node(item)
+
+        temp.setNext(self.head)
+
+        self.head = temp
+</pre>
+
+        <!-- PENGGUNAAN -->
+
+        <h2>
+            Penggunaan Linked List
+        </h2>
+
+<pre>
+mylist = LinkedList()
+
+mylist.add(34)
+
+mylist.add(45)
+
+mylist.add(21)
+</pre>
+
+        <!-- TRAVERSAL -->
+
+        <h2>
+            Traversal Linked List
+        </h2>
+
+        <p>
+            Traversal digunakan untuk
+            menelusuri seluruh node.
+        </p>
+
+<pre>
+HEAD
+
+↓
+
+[84|•] → [70|•] → [34|•] → None
+</pre>
+
+        <!-- SIZE -->
+
+        <h2>
+            Program Menghitung Jumlah Node
+        </h2>
+
+<pre>
+def size(self):
+
+    current = self.head
+
+    count = 0
+
+    while current != None:
+
+        count = count + 1
+
+        current = current.getNext()
+
+    return count
+</pre>
+
+        <!-- SEARCH -->
+
+        <h2>
+            Program Search Linked List
+        </h2>
+
+<pre>
+def search(self, item):
+
+    current = self.head
+
+    found = False
+
+    while current != None and not found:
+
+        if current.getData() == item:
+
+            found = True
+
+        else:
+
+            current = current.getNext()
+
+    return found
+</pre>
+
+        <!-- DISPLAY -->
+
+        <h2>
+            Program Display Linked List
+        </h2>
+
+<pre>
+def display(self):
+
+    current = self.head
+
+    while current != None:
+
+        print(current.getData())
+
+        current = current.getNext()
+</pre>
+
+        <!-- REMOVE -->
+
+        <h2>
+            Remove Node
+        </h2>
+
+        <p>
+            Remove digunakan untuk
+            menghapus node pada linked list.
+        </p>
+
+        <!-- ILUSTRASI -->
+
+        <h2>
+            Ilustrasi Remove
+        </h2>
+
+<pre>
+SEBELUM
+
+[30|•] → [25|•] → [40|•] → [5|•]
+
+
+HAPUS 40
+
+
+SESUDAH
+
+[30|•] → [25|•] → [5|•]
+</pre>
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Remove Node
+        </h2>
+
+<pre>
+def remove(self, item):
+
+    current = self.head
+
+    previous = None
+
+    found = False
+
+    while not found:
+
+        if current.getData() == item:
+
+            found = True
+
+        else:
+
+            previous = current
+
+            current = current.getNext()
+
+    if previous == None:
+
+        self.head = current.getNext()
+
+    else:
+
+        previous.setNext(
+            current.getNext()
+        )
+</pre>
+
+        <!-- ORDERED -->
+
+        <h2>
+            Ordered Linked List
+        </h2>
+
+        <p>
+            Ordered Linked List adalah
+            linked list yang datanya
+            selalu terurut.
+        </p>
+
+        <!-- ILUSTRASI -->
+
+        <h2>
+            Ilustrasi Ordered Linked List
+        </h2>
+
+<pre>
+[9|•] → [14|•] → [100|•]
+</pre>
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Ordered Search
+        </h2>
+
+<pre>
+def search(self, item):
+
+    current = self.head
+
+    found = False
+
+    stop = False
+
+    while (
+        current != None
+        and not found
+        and not stop
+    ):
+
+        if current.getData() == item:
+
+            found = True
+
+        else:
+
+            if current.getData() > item:
+
+                stop = True
+
+            else:
+
+                current = current.getNext()
+
+    return found
+</pre>
+
+        <!-- STUDY -->
+
+        <h2>
+            Study Kasus Linked List
+        </h2>
+
+        <p>
+            Linked List digunakan
+            pada music playlist,
+            browser history,
+            dan sistem antrian.
+        </p>
+
+        <!-- KELEBIHAN -->
+
+        <h2>
+            Kelebihan dan Kekurangan
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Kelebihan
+                </th>
+
+                <th>
+                    Kekurangan
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Dinamis
+                </td>
+
+                <td>
+                    Membutuhkan pointer
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Mudah insert dan delete
+                </td>
+
+                <td>
+                    Akses lebih lambat
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Tidak perlu ukuran tetap
+                </td>
+
+                <td>
+                    Memori lebih besar
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- KOMPLEKSITAS -->
+
+        <h2>
+            Kompleksitas Linked List
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Operasi
+                </th>
+
+                <th>
+                    Kompleksitas
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Insert Awal
+                </td>
+
+                <td>
+                    O(1)
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Search
+                </td>
+
+                <td>
+                    O(n)
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Remove
+                </td>
+
+                <td>
+                    O(n)
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- BUTTON -->
+
+        <a href="index.html#materi" class="back">
+
+            Kembali
+
+        </a>
+
+    </div>
+
+</body>
+</html>

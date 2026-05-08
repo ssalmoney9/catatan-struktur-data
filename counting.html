@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Materi Counting Sort</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            Catatan Struktur Data
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="index.html#home">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="index.html#materi">
+                    Materi
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- CONTENT -->
+
+    <div class="content">
+
+        <h1>
+            Counting Sort
+        </h1>
+
+        <p>
+            Counting Sort adalah algoritma
+            sorting yang bekerja dengan
+            menghitung jumlah kemunculan
+            setiap data.
+        </p>
+
+        <p>
+            Setelah jumlah data diketahui,
+            data akan ditempatkan pada
+            posisi yang sesuai.
+        </p>
+
+        <!-- KONSEP -->
+
+        <h2>
+            Konsep Counting Sort
+        </h2>
+
+        <p>
+            Counting Sort tidak membandingkan
+            data secara langsung seperti
+            bubble sort atau quick sort.
+        </p>
+
+        <p>
+            Algoritma ini menghitung
+            frekuensi setiap data.
+        </p>
+
+        <!-- VISUAL -->
+
+        <h2>
+            Visualisasi Counting Sort
+        </h2>
+
+        <p>
+            Visualisasi Counting Sort dapat
+            dilihat melalui website berikut.
+        </p>
+
+        <a
+            href="https://www.cs.usfca.edu/~galles/visualization/CountingSort.html"
+            target="_blank"
+            class="visual-btn"
+        >
+
+            Buka Visualisasi Counting Sort
+
+        </a>
+
+        <!-- ILUSTRASI -->
+
+        <h2>
+            Ilustrasi Counting Sort
+        </h2>
+
+<pre>
+DATA
+
+[4,3,1,2,4,2,1,1]
+
+
+JUMLAH DATA
+
+1 = 3 kali
+
+2 = 2 kali
+
+3 = 1 kali
+
+4 = 2 kali
+
+
+HASIL SORTING
+
+[1,1,1,2,2,3,4,4]
+</pre>
+
+        <!-- KARAKTERISTIK -->
+
+        <h2>
+            Karakteristik Counting Sort
+        </h2>
+
+        <ul>
+
+            <li>
+                Menghitung jumlah data
+            </li>
+
+            <li>
+                Tidak menggunakan perbandingan
+            </li>
+
+            <li>
+                Sangat cepat
+            </li>
+
+            <li>
+                Cocok untuk integer kecil
+            </li>
+
+        </ul>
+
+        <!-- ALGORITMA -->
+
+        <h2>
+            Algoritma Counting Sort
+        </h2>
+
+<pre>
+1. Hitung jumlah setiap data
+
+2. Hitung jumlah kumulatif
+
+3. Tempatkan data pada posisi tepat
+
+4. Hasil data menjadi terurut
+</pre>
+
+        <!-- KUMULATIF -->
+
+        <h2>
+            Konsep Kumulatif
+        </h2>
+
+        <p>
+            Nilai kumulatif digunakan
+            untuk menentukan posisi akhir
+            suatu data pada array hasil.
+        </p>
+
+<pre>
+COUNT
+
+[0,3,2,1,2]
+
+
+KUMULATIF
+
+[0,3,5,6,8]
+</pre>
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Counting Sort
+        </h2>
+
+<pre>
+def countingSort(A,k):
+
+    C = []
+
+    B = []
+
+    for i in range(k+1):
+
+        C.append(0)
+
+    for j in range(len(A)):
+
+        C[A[j]] = C[A[j]] + 1
+
+        B.append(0)
+
+    for i in range(1,k+1):
+
+        C[i] = C[i] + C[i-1]
+
+    for j in range(len(A)-1,-1,-1):
+
+        B[C[A[j]]-1] = A[j]
+
+        C[A[j]] = C[A[j]] - 1
+
+    return(B)
+
+a_list = [
+    54,26,93,17,
+    1,31,2,55,
+    20,93,20,
+    3,4,5
+]
+
+print(
+    countingSort(a_list,93)
+)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+[1,2,3,4,5,17,20,20,
+26,31,54,55,93,93]
+</pre>
+
+        <!-- PENJELASAN -->
+
+        <h2>
+            Penjelasan Coding
+        </h2>
+
+        <p>
+            Array C digunakan untuk
+            menyimpan jumlah kemunculan data.
+        </p>
+
+        <p>
+            Array B digunakan untuk
+            menyimpan hasil sorting.
+        </p>
+
+        <p>
+            Loop pertama menghitung
+            jumlah data.
+        </p>
+
+        <p>
+            Loop kedua menghitung
+            jumlah kumulatif.
+        </p>
+
+        <p>
+            Loop terakhir menempatkan
+            data pada posisi yang tepat.
+        </p>
+
+        <!-- STEP -->
+
+        <h2>
+            Counting Sort Step by Step
+        </h2>
+
+<pre>
+DATA
+
+[4,3,1,2,4,2,1,1]
+
+
+STEP 1
+
+Hitung jumlah data
+
+
+1 = 3
+
+2 = 2
+
+3 = 1
+
+4 = 2
+
+
+STEP 2
+
+Hitung kumulatif
+
+
+[0,3,5,6,8]
+
+
+STEP 3
+
+Tempatkan data
+
+
+[1,1,1,2,2,3,4,4]
+</pre>
+
+        <!-- STUDY -->
+
+        <h2>
+            Study Kasus Counting Sort
+        </h2>
+
+        <p>
+            Counting Sort dapat digunakan
+            untuk mengurutkan nilai ujian
+            siswa dengan cepat.
+        </p>
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Study Kasus
+        </h2>
+
+<pre>
+nilai = [90,70,80,60,100]
+
+print(
+    countingSort(nilai,100)
+)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+[60,70,80,90,100]
+</pre>
+
+        <!-- PERBANDINGAN -->
+
+        <h2>
+            Quick Sort vs Counting Sort
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Quick Sort
+                </th>
+
+                <th>
+                    Counting Sort
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Menggunakan perbandingan
+                </td>
+
+                <td>
+                    Menggunakan perhitungan
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Cocok untuk semua data
+                </td>
+
+                <td>
+                    Cocok integer kecil
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Lebih fleksibel
+                </td>
+
+                <td>
+                    Lebih cepat
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- KELEBIHAN -->
+
+        <h2>
+            Kelebihan dan Kekurangan
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Kelebihan
+                </th>
+
+                <th>
+                    Kekurangan
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Sangat cepat
+                </td>
+
+                <td>
+                    Membutuhkan memori besar
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Kompleksitas kecil
+                </td>
+
+                <td>
+                    Hanya untuk integer
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Tidak menggunakan comparison
+                </td>
+
+                <td>
+                    Tidak cocok data besar acak
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- KOMPLEKSITAS -->
+
+        <h2>
+            Kompleksitas Counting Sort
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Kasus
+                </th>
+
+                <th>
+                    Kompleksitas
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Best Case
+                </td>
+
+                <td>
+                    O(n+k)
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Average Case
+                </td>
+
+                <td>
+                    O(n+k)
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Worst Case
+                </td>
+
+                <td>
+                    O(n+k)
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- BUTTON -->
+
+        <a href="index.html#materi" class="back">
+
+            Kembali
+
+        </a>
+
+    </div>
+
+</body>
+</html>

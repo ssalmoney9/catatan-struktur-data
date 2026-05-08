@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Materi Infix Prefix Postfix</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            Catatan Struktur Data
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="index.html#home">Home</a>
+            </li>
+
+            <li>
+                <a href="index.html#materi">Materi</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- CONTENT -->
+
+    <div class="content">
+
+        <h1>
+            Infix, Prefix, dan Postfix
+        </h1>
+
+        <p>
+            Infix, Prefix, dan Postfix adalah bentuk
+            penulisan ekspresi matematika yang digunakan
+            pada struktur data stack.
+        </p>
+
+        <!-- INFIX -->
+
+        <h2>
+            Infix
+        </h2>
+
+        <p>
+            Infix adalah bentuk penulisan operator
+            di tengah operand.
+        </p>
+
+<pre>
+A + B
+
+A * B
+
+(A + B) * C
+</pre>
+
+        <!-- PREFIX -->
+
+        <h2>
+            Prefix
+        </h2>
+
+        <p>
+            Prefix adalah bentuk penulisan operator
+            di depan operand.
+        </p>
+
+<pre>
++ A B
+
+* A B
+
+* + A B C
+</pre>
+
+        <!-- POSTFIX -->
+
+        <h2>
+            Postfix
+        </h2>
+
+        <p>
+            Postfix adalah bentuk penulisan operator
+            di belakang operand.
+        </p>
+
+<pre>
+A B +
+
+A B *
+
+A B + C *
+</pre>
+
+        <!-- PERBEDAAN -->
+
+        <h2>
+            Perbedaan Bentuk
+        </h2>
+
+<pre>
+INFIX
+
+A + B
+
+
+PREFIX
+
++ A B
+
+
+POSTFIX
+
+A B +
+</pre>
+
+        <!-- PRIORITAS -->
+
+        <h2>
+            Prioritas Operator
+        </h2>
+
+        <ul>
+
+            <li>
+                () memiliki prioritas tertinggi
+            </li>
+
+            <li>
+                Pangkat lebih tinggi dari perkalian
+            </li>
+
+            <li>
+                Perkalian lebih tinggi dari penjumlahan
+            </li>
+
+        </ul>
+
+        <!-- KONVERSI POSTFIX -->
+
+        <h2>
+            Konversi Infix ke Postfix
+        </h2>
+
+        <p>
+            Konversi infix ke postfix menggunakan stack.
+        </p>
+
+<pre>
+INFIX
+
+(A + B) * C
+
+
+STEP 1
+
+A B +
+
+
+STEP 2
+
+A B + C *
+
+
+HASIL POSTFIX
+
+AB+C*
+</pre>
+
+        <!-- KONVERSI PREFIX -->
+
+        <h2>
+            Konversi Infix ke Prefix
+        </h2>
+
+        <p>
+            Langkah konversi:
+        </p>
+
+        <ul>
+
+            <li>
+                Balik ekspresi
+            </li>
+
+            <li>
+                Tukar tanda kurung
+            </li>
+
+            <li>
+                Ubah menjadi postfix
+            </li>
+
+            <li>
+                Balik hasil postfix
+            </li>
+
+        </ul>
+
+<pre>
+INFIX
+
+(A + B) * C
+
+
+REVERSE
+
+C * ( B + A )
+
+
+POSTFIX
+
+CBA+*
+
+
+HASIL PREFIX
+
+*+ABC
+</pre>
+
+        <!-- PROGRAM POSTFIX -->
+
+        <h2>
+            Program Infix ke Postfix
+        </h2>
+
+<pre>
+def infixToPostfix(infix):
+
+    stack = []
+
+    output = []
+
+    prioritas = {
+        '+':1,
+        '-':1,
+        '*':2,
+        '/':2
+    }
+
+    for char in infix:
+
+        if char.isalpha():
+
+            output.append(char)
+
+        elif char == '(':
+
+            stack.append(char)
+
+        elif char == ')':
+
+            while stack and stack[-1] != '(':
+
+                output.append(stack.pop())
+
+            stack.pop()
+
+        else:
+
+            while (
+                stack and
+                stack[-1] != '(' and
+                prioritas[char] <= prioritas[stack[-1]]
+            ):
+
+                output.append(stack.pop())
+
+            stack.append(char)
+
+    while stack:
+
+        output.append(stack.pop())
+
+    return ''.join(output)
+
+print(
+    infixToPostfix("(A+B)*C")
+)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+AB+C*
+</pre>
+
+        <!-- PROGRAM PREFIX -->
+
+        <h2>
+            Program Infix ke Prefix
+        </h2>
+
+<pre>
+def infixToPrefix(infix):
+
+    infix = infix[::-1]
+
+    hasil = ""
+
+    for i in infix:
+
+        if i == '(':
+            hasil += ')'
+
+        elif i == ')':
+            hasil += '('
+
+        else:
+            hasil += i
+
+    stack = []
+
+    output = []
+
+    prioritas = {
+        '+':1,
+        '-':1,
+        '*':2,
+        '/':2
+    }
+
+    for char in hasil:
+
+        if char.isalpha():
+
+            output.append(char)
+
+        elif char == '(':
+
+            stack.append(char)
+
+        elif char == ')':
+
+            while stack and stack[-1] != '(':
+
+                output.append(stack.pop())
+
+            stack.pop()
+
+        else:
+
+            while (
+                stack and
+                stack[-1] != '(' and
+                prioritas[char] <= prioritas[stack[-1]]
+            ):
+
+                output.append(stack.pop())
+
+            stack.append(char)
+
+    while stack:
+
+        output.append(stack.pop())
+
+    prefix = ''.join(output[::-1])
+
+    return prefix
+
+print(
+    infixToPrefix("(A+B)*C")
+)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+*+ABC
+</pre>
+
+        <!-- EVALUASI POSTFIX -->
+
+        <h2>
+            Evaluasi Postfix
+        </h2>
+
+<pre>
+POSTFIX
+
+4 5 6 * -
+
+
+STEP
+
+5 * 6 = 30
+
+4 - 30 = -26
+</pre>
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Evaluasi Postfix
+        </h2>
+
+<pre>
+def postfixEval(expr):
+
+    stack = []
+
+    token = expr.split()
+
+    for i in token:
+
+        if i.isdigit():
+
+            stack.append(int(i))
+
+        else:
+
+            op2 = stack.pop()
+
+            op1 = stack.pop()
+
+            if i == '+':
+                hasil = op1 + op2
+
+            elif i == '-':
+                hasil = op1 - op2
+
+            elif i == '*':
+                hasil = op1 * op2
+
+            elif i == '/':
+                hasil = op1 / op2
+
+            stack.append(hasil)
+
+    return stack.pop()
+
+print(
+    postfixEval("4 5 6 * -")
+)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+-26
+</pre>
+
+        <!-- EVALUASI PREFIX -->
+
+        <h2>
+            Evaluasi Prefix
+        </h2>
+
+<pre>
+PREFIX
+
+- 4 * 5 6
+
+
+STEP
+
+5 * 6 = 30
+
+4 - 30 = -26
+</pre>
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Evaluasi Prefix
+        </h2>
+
+<pre>
+def prefixEval(expr):
+
+    stack = []
+
+    token = expr.split()[::-1]
+
+    for i in token:
+
+        if i.isdigit():
+
+            stack.append(int(i))
+
+        else:
+
+            op1 = stack.pop()
+
+            op2 = stack.pop()
+
+            if i == '+':
+                hasil = op1 + op2
+
+            elif i == '-':
+                hasil = op1 - op2
+
+            elif i == '*':
+                hasil = op1 * op2
+
+            elif i == '/':
+                hasil = op1 / op2
+
+            stack.append(hasil)
+
+    return stack.pop()
+
+print(
+    prefixEval("- 4 * 5 6")
+)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+-26
+</pre>
+
+        <!-- STUDY KASUS -->
+
+        <h2>
+            Study Kasus
+        </h2>
+
+        <p>
+            Infix, Prefix, dan Postfix digunakan
+            pada compiler, parser, dan kalkulator.
+        </p>
+
+        <!-- TABEL -->
+
+        <h2>
+            Perbandingan Infix Prefix Postfix
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Bentuk
+                </th>
+
+                <th>
+                    Kelebihan
+                </th>
+
+                <th>
+                    Kekurangan
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Infix
+                </td>
+
+                <td>
+                    Mudah dibaca manusia
+                </td>
+
+                <td>
+                    Butuh prioritas operator
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Prefix
+                </td>
+
+                <td>
+                    Tidak perlu tanda kurung
+                </td>
+
+                <td>
+                    Sulit dipahami manusia
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Postfix
+                </td>
+
+                <td>
+                    Mudah dievaluasi komputer
+                </td>
+
+                <td>
+                    Kurang familiar
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- BUTTON -->
+
+        <a href="index.html#materi" class="back">
+            Kembali
+        </a>
+
+    </div>
+
+</body>
+</html>

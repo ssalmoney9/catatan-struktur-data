@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Materi Sequential Search</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            Catatan Struktur Data
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="index.html#home">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="index.html#materi">
+                    Materi
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- CONTENT -->
+
+    <div class="content">
+
+        <h1>
+            Sequential Search
+        </h1>
+
+        <p>
+            Sequential Search adalah algoritma
+            pencarian data dengan cara mengecek
+            data satu per satu secara berurutan.
+        </p>
+
+        <p>
+            Pencarian dimulai dari indeks pertama
+            hingga data ditemukan atau data habis.
+        </p>
+
+        <!-- KONSEP -->
+
+        <h2>
+            Konsep Sequential Search
+        </h2>
+
+        <p>
+            Sequential Search bekerja dengan
+            membandingkan data yang dicari
+            terhadap setiap elemen pada list.
+        </p>
+
+        <!-- VISUAL -->
+
+        <h2>
+            Visualisasi Sequential Search
+        </h2>
+
+        <p>
+            Visualisasi Sequential Search dapat
+            dilihat melalui visualizer berikut.
+        </p>
+
+        <a
+            href="https://www.cs.usfca.edu/~galles/visualization/Search.html"
+            target="_blank"
+            class="visual-btn"
+        >
+
+            Buka Visualisasi Sequential Search
+
+        </a>
+
+        <!-- ILUSTRASI -->
+
+        <h2>
+            Ilustrasi Sequential Search
+        </h2>
+
+<pre>
+DATA
+
+[12, 5, 9, 8, 1, 10, 26]
+
+
+MENCARI 1
+
+
+STEP 1
+
+12 ≠ 1
+
+
+STEP 2
+
+5 ≠ 1
+
+
+STEP 3
+
+9 ≠ 1
+
+
+STEP 4
+
+8 ≠ 1
+
+
+STEP 5
+
+1 = ditemukan
+</pre>
+
+        <!-- KARAKTERISTIK -->
+
+        <h2>
+            Karakteristik Sequential Search
+        </h2>
+
+        <ul>
+
+            <li>
+                Pencarian dilakukan satu per satu
+            </li>
+
+            <li>
+                Tidak membutuhkan data terurut
+            </li>
+
+            <li>
+                Mudah dipahami
+            </li>
+
+            <li>
+                Cocok untuk data kecil
+            </li>
+
+        </ul>
+
+        <!-- JENIS -->
+
+        <h2>
+            Jenis Sequential Search
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Jenis
+                </th>
+
+                <th>
+                    Penjelasan
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Unordered Sequential Search
+                </td>
+
+                <td>
+                    Digunakan untuk data acak
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Ordered Sequential Search
+                </td>
+
+                <td>
+                    Digunakan untuk data terurut
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- ALGORITMA -->
+
+        <h2>
+            Algoritma Sequential Search
+        </h2>
+
+<pre>
+1. Mulai dari indeks pertama
+
+2. Bandingkan data dengan key
+
+3. Jika sama → data ditemukan
+
+4. Jika tidak → lanjut ke data berikutnya
+
+5. Berhenti saat data ditemukan
+   atau data habis
+</pre>
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Unordered Sequential Search
+        </h2>
+
+<pre>
+def seqSearch(listData, data):
+
+    ind = 0
+
+    found = False
+
+    while ind < len(listData) and not found:
+
+        if listData[ind] == data:
+
+            found = True
+
+        else:
+
+            ind = ind + 1
+
+    return found
+
+a = [12,5,9,8,1,10,26]
+
+print(
+    seqSearch(a,1)
+)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+True
+</pre>
+
+        <!-- PENJELASAN -->
+
+        <h2>
+            Penjelasan Coding
+        </h2>
+
+        <p>
+            Variabel ind digunakan untuk
+            menyimpan indeks data.
+        </p>
+
+        <p>
+            Variabel found digunakan untuk
+            mengecek apakah data ditemukan.
+        </p>
+
+        <p>
+            Perulangan while akan berjalan
+            sampai data ditemukan.
+        </p>
+
+        <!-- INDEX -->
+
+        <h2>
+            Sequential Search Mengembalikan Index
+        </h2>
+
+<pre>
+def seqSearch(listData, data):
+
+    ind = 0
+
+    found = False
+
+    while ind < len(listData) and not found:
+
+        if listData[ind] == data:
+
+            found = True
+
+        else:
+
+            ind += 1
+
+    if found:
+
+        return ind
+
+    else:
+
+        return "Data tidak ada"
+
+a = [12,5,9,8,1,10,26]
+
+print(
+    seqSearch(a,1)
+)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+4
+</pre>
+
+        <!-- MULTI -->
+
+        <h2>
+            Sequential Search Banyak Data Sama
+        </h2>
+
+<pre>
+def seqSearchAll(listData, data):
+
+    posisi = []
+
+    for i in range(len(listData)):
+
+        if listData[i] == data:
+
+            posisi.append(i)
+
+    if posisi:
+
+        return posisi
+
+    else:
+
+        return "Data tidak ada"
+
+a = [1,5,5,8,5,10]
+
+print(
+    seqSearchAll(a,5)
+)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+[1, 2, 4]
+</pre>
+
+        <!-- ORDERED -->
+
+        <h2>
+            Ordered Sequential Search
+        </h2>
+
+        <p>
+            Ordered Sequential Search digunakan
+            untuk data yang sudah terurut.
+        </p>
+
+        <p>
+            Pencarian bisa berhenti lebih cepat
+            jika data pada list lebih besar
+            dari data yang dicari.
+        </p>
+
+        <!-- VISUAL -->
+
+        <h2>
+            Ilustrasi Ordered Sequential Search
+        </h2>
+
+<pre>
+DATA
+
+[1, 5, 8, 10, 12, 26]
+
+
+MENCARI 9
+
+
+STEP 1
+
+1 < 9
+
+
+STEP 2
+
+5 < 9
+
+
+STEP 3
+
+8 < 9
+
+
+STEP 4
+
+10 > 9
+
+
+STOP
+
+Data tidak ada
+</pre>
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Ordered Sequential Search
+        </h2>
+
+<pre>
+def orderedSeqSearch(listData, data):
+
+    ind = 0
+
+    found = False
+
+    stop = False
+
+    while (
+        ind < len(listData)
+        and not found
+        and not stop
+    ):
+
+        if listData[ind] == data:
+
+            found = True
+
+        else:
+
+            if listData[ind] > data:
+
+                stop = True
+
+            else:
+
+                ind += 1
+
+    if found:
+
+        return ind
+
+    else:
+
+        return "Data tidak ada"
+
+a = [1,5,8,10,12,26]
+
+print(
+    orderedSeqSearch(a,10)
+)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+3
+</pre>
+
+        <!-- STUDY KASUS -->
+
+        <h2>
+            Study Kasus Sequential Search
+        </h2>
+
+        <p>
+            Sequential Search dapat digunakan
+            untuk mencari data mahasiswa
+            berdasarkan nama.
+        </p>
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Study Kasus
+        </h2>
+
+<pre>
+mahasiswa = [
+    "Alya",
+    "Budi",
+    "Citra",
+    "Dimas"
+]
+
+cari = "Citra"
+
+found = False
+
+for i in mahasiswa:
+
+    if i == cari:
+
+        found = True
+
+if found:
+
+    print("Data ditemukan")
+
+else:
+
+    print("Data tidak ditemukan")
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+Data ditemukan
+</pre>
+
+        <!-- KELEBIHAN -->
+
+        <h2>
+            Kelebihan dan Kekurangan
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Kelebihan
+                </th>
+
+                <th>
+                    Kekurangan
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Mudah dipahami
+                </td>
+
+                <td>
+                    Lambat untuk data besar
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Tidak perlu data terurut
+                </td>
+
+                <td>
+                    Banyak perbandingan data
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Mudah diimplementasikan
+                </td>
+
+                <td>
+                    Kurang efisien
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- KOMPLEKSITAS -->
+
+        <h2>
+            Kompleksitas Sequential Search
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Kasus
+                </th>
+
+                <th>
+                    Kompleksitas
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Best Case
+                </td>
+
+                <td>
+                    O(1)
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Average Case
+                </td>
+
+                <td>
+                    O(n)
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Worst Case
+                </td>
+
+                <td>
+                    O(n)
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- BUTTON -->
+
+        <a href="index.html#materi" class="back">
+
+            Kembali
+
+        </a>
+
+    </div>
+
+</body>
+</html>

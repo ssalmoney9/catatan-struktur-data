@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Materi Hashing</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            Catatan Struktur Data
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="index.html#home">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="index.html#materi">
+                    Materi
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- CONTENT -->
+
+    <div class="content">
+
+        <h1>
+            Hashing
+        </h1>
+
+        <p>
+            Hashing adalah teknik penyimpanan
+            dan pencarian data menggunakan
+            hash table dan hash function.
+        </p>
+
+        <p>
+            Dengan hashing, proses pencarian
+            data dapat dilakukan lebih cepat.
+        </p>
+
+        <!-- KONSEP -->
+
+        <h2>
+            Konsep Hashing
+        </h2>
+
+        <p>
+            Data akan dipetakan ke slot tertentu
+            menggunakan hash function.
+        </p>
+
+        <p>
+            Slot digunakan sebagai tempat
+            penyimpanan data pada hash table.
+        </p>
+
+        <!-- VISUAL -->
+
+        <h2>
+            Visualisasi Hashing
+        </h2>
+
+        <p>
+            Visualisasi hashing dapat dilihat
+            melalui website berikut.
+        </p>
+
+        <a
+            href="https://www.cs.usfca.edu/~galles/visualization/OpenHash.html"
+            target="_blank"
+            class="visual-btn"
+        >
+
+            Buka Visualisasi Hashing
+
+        </a>
+
+        <!-- ISTILAH -->
+
+        <h2>
+            Istilah Dalam Hashing
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Istilah
+                </th>
+
+                <th>
+                    Penjelasan
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Hash Table
+                </td>
+
+                <td>
+                    Tempat penyimpanan data
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Slot
+                </td>
+
+                <td>
+                    Posisi indeks pada tabel
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Hash Function
+                </td>
+
+                <td>
+                    Fungsi untuk menentukan slot
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Collision
+                </td>
+
+                <td>
+                    Dua data memiliki slot sama
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- HASH FUNCTION -->
+
+        <h2>
+            Hash Function
+        </h2>
+
+        <p>
+            Hash function digunakan untuk
+            menentukan posisi penyimpanan data.
+        </p>
+
+        <p>
+            Fungsi hash sederhana dapat menggunakan
+            operasi modulus.
+        </p>
+
+        <!-- RUMUS -->
+
+        <h2>
+            Rumus Hash Function
+        </h2>
+
+        :contentReference[oaicite:0]{index=0}
+
+        <!-- ILUSTRASI -->
+
+        <h2>
+            Contoh Perhitungan Hash
+        </h2>
+
+<pre>
+54 % 11 = 10
+
+26 % 11 = 4
+
+93 % 11 = 5
+
+17 % 11 = 6
+
+77 % 11 = 0
+
+31 % 11 = 9
+</pre>
+
+        <!-- HASH TABLE -->
+
+        <h2>
+            Representasi Hash Table
+        </h2>
+
+<pre>
+INDEX
+
+0   1   2   3   4   5   6   7   8   9   10
+
+
+DATA
+
+77  -   -   -   26  93  17  -   -   31  54
+</pre>
+
+        <!-- LOAD FACTOR -->
+
+        <h2>
+            Load Factor
+        </h2>
+
+        <p>
+            Load Factor adalah persentase
+            penggunaan hash table.
+        </p>
+
+        :contentReference[oaicite:1]{index=1}
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Hash Function
+        </h2>
+
+<pre>
+def remainderFunction(data, num):
+
+    return (data % num)
+
+print(
+    remainderFunction(54,11)
+)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+10
+</pre>
+
+        <!-- CREATE TABLE -->
+
+        <h2>
+            Program Membuat Hash Table
+        </h2>
+
+<pre>
+def createHashTable(num):
+
+    temp = []
+
+    for i in range(num):
+
+        temp.append('none')
+
+    return temp
+
+print(
+    createHashTable(11)
+)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+['none', 'none', 'none',
+ 'none', 'none', 'none',
+ 'none', 'none', 'none',
+ 'none', 'none']
+</pre>
+
+        <!-- INSERT -->
+
+        <h2>
+            Program Insert Data
+        </h2>
+
+<pre>
+def remainderFunction(data, num):
+
+    return data % num
+
+def createHashTable(num):
+
+    table = []
+
+    for i in range(num):
+
+        table.append('none')
+
+    return table
+
+def putData(data, table):
+
+    for i in range(len(data)):
+
+        ind = remainderFunction(
+            data[i],
+            len(table)
+        )
+
+        table[ind] = data[i]
+
+    return table
+
+a = [54,26,93,17,77,31]
+
+hashTable = createHashTable(11)
+
+print(
+    putData(a, hashTable)
+)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+[77, 'none', 'none',
+ 'none', 26, 93,
+ 17, 'none', 'none',
+ 31, 54]
+</pre>
+
+        <!-- SEARCH -->
+
+        <h2>
+            Program Search Hash
+        </h2>
+
+<pre>
+def searchHash(data, table):
+
+    hashVal = data % len(table)
+
+    if data == table[hashVal]:
+
+        return True
+
+    else:
+
+        return False
+
+hashTable = [
+    77,'none','none',
+    'none',26,93,
+    17,'none','none',
+    31,54
+]
+
+print(
+    searchHash(93, hashTable)
+)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+True
+</pre>
+
+        <!-- COLLISION -->
+
+        <h2>
+            Collision
+        </h2>
+
+        <p>
+            Collision terjadi ketika dua data
+            memiliki nilai hash yang sama.
+        </p>
+
+<pre>
+77 % 11 = 0
+
+44 % 11 = 0
+</pre>
+
+        <p>
+            Karena slot 0 sudah dipakai oleh 77,
+            maka data 44 menyebabkan collision.
+        </p>
+
+        <!-- PENANGANAN -->
+
+        <h2>
+            Penanganan Collision
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Metode
+                </th>
+
+                <th>
+                    Penjelasan
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Linear Probing
+                </td>
+
+                <td>
+                    Mencari slot kosong berikutnya
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Quadratic Probing
+                </td>
+
+                <td>
+                    Melompat dengan pola kuadrat
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Chaining
+                </td>
+
+                <td>
+                    Menyimpan banyak data dalam satu slot
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- LINEAR -->
+
+        <h2>
+            Linear Probing
+        </h2>
+
+        <p>
+            Linear probing mencari slot kosong
+            satu per satu secara berurutan.
+        </p>
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Linear Probing
+        </h2>
+
+<pre>
+def linearProbing(ind, hashTable, data):
+
+    count = ind
+
+    found = False
+
+    while (count != ind-1) and not found:
+
+        if hashTable[count] == 'none':
+
+            found = True
+
+            hashTable[count] = data
+
+        else:
+
+            count = count + 1
+
+            if count == len(hashTable)-1:
+
+                count = 0
+
+    return hashTable
+</pre>
+
+        <!-- QUADRATIC -->
+
+        <h2>
+            Quadratic Probing
+        </h2>
+
+        <p>
+            Quadratic probing mencari slot
+            menggunakan pola kuadrat.
+        </p>
+
+<pre>
+h+1, h+4, h+9, h+16
+</pre>
+
+        <!-- CHAINING -->
+
+        <h2>
+            Chaining
+        </h2>
+
+        <p>
+            Chaining memungkinkan satu slot
+            menyimpan lebih dari satu data.
+        </p>
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Chaining
+        </h2>
+
+<pre>
+table = [[] for i in range(11)]
+
+def hash(x):
+
+    return x % 11
+
+def insert(table, key, value):
+
+    index = hash(key)
+
+    table[index].append(value)
+
+insert(table,54,54)
+
+insert(table,44,44)
+
+insert(table,77,77)
+
+print(table)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+[[77,44],[],[],[],
+ [],[],[],[],[],
+ [],[54]]
+</pre>
+
+        <!-- STRING -->
+
+        <h2>
+            Hashing String
+        </h2>
+
+        <p>
+            String dapat diubah menjadi
+            nilai integer menggunakan ASCII.
+        </p>
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Hash String
+        </h2>
+
+<pre>
+def strVal(strData):
+
+    temp = 0
+
+    for i in range(len(strData)):
+
+        temp = temp + ord(strData[i])
+
+    return temp
+
+print(
+    strVal('indonesia')
+)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+958
+</pre>
+
+        <!-- STUDY -->
+
+        <h2>
+            Study Kasus Hashing
+        </h2>
+
+        <p>
+            Hashing digunakan pada:
+        </p>
+
+        <ul>
+
+            <li>
+                Database
+            </li>
+
+            <li>
+                Password
+            </li>
+
+            <li>
+                Cache
+            </li>
+
+            <li>
+                Dictionary Python
+            </li>
+
+        </ul>
+
+        <!-- KELEBIHAN -->
+
+        <h2>
+            Kelebihan dan Kekurangan
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Kelebihan
+                </th>
+
+                <th>
+                    Kekurangan
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Searching sangat cepat
+                </td>
+
+                <td>
+                    Bisa terjadi collision
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Efisien untuk data besar
+                </td>
+
+                <td>
+                    Membutuhkan hash function baik
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Kompleksitas kecil
+                </td>
+
+                <td>
+                    Penggunaan memori lebih besar
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- KOMPLEKSITAS -->
+
+        <h2>
+            Kompleksitas Hashing
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Kasus
+                </th>
+
+                <th>
+                    Kompleksitas
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Best Case
+                </td>
+
+                <td>
+                    O(1)
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Average Case
+                </td>
+
+                <td>
+                    O(1)
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Worst Case
+                </td>
+
+                <td>
+                    O(n)
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- BUTTON -->
+
+        <a href="index.html#materi" class="back">
+
+            Kembali
+
+        </a>
+
+    </div>
+
+</body>
+</html>

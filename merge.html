@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Materi Merge Sort</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            Catatan Struktur Data
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="index.html#home">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="index.html#materi">
+                    Materi
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- CONTENT -->
+
+    <div class="content">
+
+        <h1>
+            Merge Sort
+        </h1>
+
+        <p>
+            Merge Sort adalah algoritma
+            sorting dengan konsep
+            divide and conquer.
+        </p>
+
+        <p>
+            Algoritma ini membagi data
+            menjadi beberapa bagian kecil,
+            kemudian menggabungkannya
+            kembali dalam keadaan terurut.
+        </p>
+
+        <!-- KONSEP -->
+
+        <h2>
+            Konsep Merge Sort
+        </h2>
+
+        <p>
+            Merge Sort terdiri dari
+            dua proses utama:
+        </p>
+
+        <ul>
+
+            <li>
+                Divide / Splitting
+            </li>
+
+            <li>
+                Merge / Penggabungan
+            </li>
+
+        </ul>
+
+        <!-- VISUAL -->
+
+        <h2>
+            Visualisasi Merge Sort
+        </h2>
+
+        <p>
+            Visualisasi Merge Sort dapat
+            dilihat melalui website berikut.
+        </p>
+
+        <a
+            href="https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html"
+            target="_blank"
+            class="visual-btn"
+        >
+
+            Buka Visualisasi Merge Sort
+
+        </a>
+
+        <!-- DIVIDE -->
+
+        <h2>
+            Tahap Divide
+        </h2>
+
+        <p>
+            Data dibagi menjadi dua bagian
+            secara terus menerus sampai
+            tersisa satu elemen.
+        </p>
+
+<pre>
+[38,12,65,22]
+
+↓
+
+[38,12]   [65,22]
+
+↓
+
+[38] [12] [65] [22]
+</pre>
+
+        <!-- RUMUS -->
+
+        <h2>
+            Pembagian Data
+        </h2>
+
+        :contentReference[oaicite:0]{index=0}
+
+        <!-- CODE -->
+
+        <h2>
+            Program Divide
+        </h2>
+
+<pre>
+data = [38,12,65,22]
+
+mid = len(data) // 2
+
+leftData = data[:mid]
+
+rightData = data[mid:]
+
+print(leftData)
+
+print(rightData)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+[38, 12]
+
+[65, 22]
+</pre>
+
+        <!-- MERGE -->
+
+        <h2>
+            Tahap Merge
+        </h2>
+
+        <p>
+            Setelah data dibagi,
+            proses berikutnya adalah
+            menggabungkan data sambil
+            membandingkan nilainya.
+        </p>
+
+<pre>
+[38] [12]
+
+↓
+
+[12,38]
+
+
+[65] [22]
+
+↓
+
+[22,65]
+</pre>
+
+        <!-- ILUSTRASI -->
+
+        <h2>
+            Ilustrasi Merge Sort
+        </h2>
+
+<pre>
+DATA
+
+[38,12,65,22,78,25]
+
+
+SPLITTING
+
+[38,12,65] [22,78,25]
+
+↓
+
+[38] [12,65] [22] [78,25]
+
+↓
+
+[38] [12] [65] [22] [78] [25]
+
+
+MERGING
+
+[12,65]
+
+↓
+
+[12,38,65]
+
+↓
+
+[22,25,78]
+
+↓
+
+[12,22,25,38,65,78]
+</pre>
+
+        <!-- ALGORITMA -->
+
+        <h2>
+            Algoritma Merge Sort
+        </h2>
+
+<pre>
+1. Bagi data menjadi dua bagian
+
+2. Bagi terus sampai satu elemen
+
+3. Gabungkan kembali data
+
+4. Bandingkan tiap elemen
+
+5. Susun data secara terurut
+</pre>
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Merge Sort
+        </h2>
+
+<pre>
+def merge_sort(a_list):
+
+    if len(a_list) > 1:
+
+        mid = len(a_list) // 2
+
+        left_half = a_list[:mid]
+
+        right_half = a_list[mid:]
+
+        merge_sort(left_half)
+
+        merge_sort(right_half)
+
+        i = 0
+
+        j = 0
+
+        k = 0
+
+        while (
+            i < len(left_half)
+            and j < len(right_half)
+        ):
+
+            if left_half[i] < right_half[j]:
+
+                a_list[k] = left_half[i]
+
+                i += 1
+
+            else:
+
+                a_list[k] = right_half[j]
+
+                j += 1
+
+            k += 1
+
+        while i < len(left_half):
+
+            a_list[k] = left_half[i]
+
+            i += 1
+
+            k += 1
+
+        while j < len(right_half):
+
+            a_list[k] = right_half[j]
+
+            j += 1
+
+            k += 1
+
+a = [38,12,65,22,78,25]
+
+merge_sort(a)
+
+print(a)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+[12,22,25,38,65,78]
+</pre>
+
+        <!-- PENJELASAN -->
+
+        <h2>
+            Penjelasan Coding
+        </h2>
+
+        <p>
+            Variabel mid digunakan
+            untuk membagi data.
+        </p>
+
+        <p>
+            left_half menyimpan
+            data bagian kiri.
+        </p>
+
+        <p>
+            right_half menyimpan
+            data bagian kanan.
+        </p>
+
+        <p>
+            Variabel i, j, dan k
+            digunakan sebagai indeks.
+        </p>
+
+        <!-- STEP -->
+
+        <h2>
+            Merge Sort Step by Step
+        </h2>
+
+<pre>
+DATA
+
+[54,26,93,17]
+
+
+STEP 1
+
+[54,26] [93,17]
+
+
+STEP 2
+
+[54] [26] [93] [17]
+
+
+STEP 3
+
+[26,54] [17,93]
+
+
+STEP 4
+
+[17,26,54,93]
+</pre>
+
+        <!-- REKURSIF -->
+
+        <h2>
+            Merge Sort dan Rekursif
+        </h2>
+
+        <p>
+            Merge Sort menggunakan
+            konsep rekursif karena
+            fungsi memanggil dirinya sendiri.
+        </p>
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Merge Sort Dengan Output Proses
+        </h2>
+
+<pre>
+def merge_sort(a_list):
+
+    print("Splitting", a_list)
+
+    if len(a_list) > 1:
+
+        mid = len(a_list)//2
+
+        left_half = a_list[:mid]
+
+        right_half = a_list[mid:]
+
+        merge_sort(left_half)
+
+        merge_sort(right_half)
+
+        i = 0
+        j = 0
+        k = 0
+
+        while (
+            i < len(left_half)
+            and j < len(right_half)
+        ):
+
+            if left_half[i] < right_half[j]:
+
+                a_list[k] = left_half[i]
+
+                i += 1
+
+            else:
+
+                a_list[k] = right_half[j]
+
+                j += 1
+
+            k += 1
+
+        while i < len(left_half):
+
+            a_list[k] = left_half[i]
+
+            i += 1
+
+            k += 1
+
+        while j < len(right_half):
+
+            a_list[k] = right_half[j]
+
+            j += 1
+
+            k += 1
+
+    print("Merging", a_list)
+
+a = [38,12,65,22]
+
+merge_sort(a)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+Splitting [38, 12, 65, 22]
+
+Splitting [38, 12]
+
+Splitting [38]
+
+Merging [38]
+
+Splitting [12]
+
+Merging [12]
+
+Merging [12, 38]
+
+Splitting [65, 22]
+
+Splitting [65]
+
+Merging [65]
+
+Splitting [22]
+
+Merging [22]
+
+Merging [22, 65]
+
+Merging [12, 22, 38, 65]
+</pre>
+
+        <!-- STUDY -->
+
+        <h2>
+            Study Kasus Merge Sort
+        </h2>
+
+        <p>
+            Merge Sort dapat digunakan
+            untuk mengurutkan data nilai siswa.
+        </p>
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Study Kasus
+        </h2>
+
+<pre>
+nilai = [88,75,90,60,95]
+
+merge_sort(nilai)
+
+print(nilai)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+[60,75,88,90,95]
+</pre>
+
+        <!-- KELEBIHAN -->
+
+        <h2>
+            Kelebihan dan Kekurangan
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Kelebihan
+                </th>
+
+                <th>
+                    Kekurangan
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Sorting stabil
+                </td>
+
+                <td>
+                    Membutuhkan memori tambahan
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Cepat untuk data besar
+                </td>
+
+                <td>
+                    Rekursi lebih kompleks
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Kompleksitas konsisten
+                </td>
+
+                <td>
+                    Tidak in-place
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- KOMPLEKSITAS -->
+
+        <h2>
+            Kompleksitas Merge Sort
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Kasus
+                </th>
+
+                <th>
+                    Kompleksitas
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Best Case
+                </td>
+
+                <td>
+                    O(n log n)
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Average Case
+                </td>
+
+                <td>
+                    O(n log n)
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Worst Case
+                </td>
+
+                <td>
+                    O(n log n)
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- BUTTON -->
+
+        <a href="index.html#materi" class="back">
+
+            Kembali
+
+        </a>
+
+    </div>
+
+</body>
+</html>

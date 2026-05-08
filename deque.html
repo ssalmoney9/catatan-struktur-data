@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Materi Deque</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            Catatan Struktur Data
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="index.html#home">Home</a>
+            </li>
+
+            <li>
+                <a href="index.html#materi">Materi</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- CONTENT -->
+
+    <div class="content">
+
+        <h1>
+            Deque
+        </h1>
+
+        <p>
+            Deque atau Double Ended Queue adalah struktur
+            data yang memungkinkan penambahan dan
+            penghapusan data dari dua sisi.
+        </p>
+
+        <p>
+            Berbeda dengan queue biasa, deque dapat
+            melakukan operasi di bagian front maupun rear.
+        </p>
+
+        <h2>
+            Ilustrasi Deque
+        </h2>
+
+        <p>
+            Deque mirip seperti antrean yang bisa masuk
+            dan keluar dari depan maupun belakang.
+        </p>
+
+        <h2>
+            Karakteristik Deque
+        </h2>
+
+        <ul>
+
+            <li>
+                Memiliki dua ujung yaitu front dan rear
+            </li>
+
+            <li>
+                Data bisa ditambah dari depan dan belakang
+            </li>
+
+            <li>
+                Data bisa dihapus dari depan dan belakang
+            </li>
+
+            <li>
+                Gabungan konsep stack dan queue
+            </li>
+
+        </ul>
+
+        <h2>
+            Operasi Pada Deque
+        </h2>
+
+        <ul>
+
+            <li>
+                addFront → menambah data depan
+            </li>
+
+            <li>
+                addRear → menambah data belakang
+            </li>
+
+            <li>
+                removeFront → menghapus data depan
+            </li>
+
+            <li>
+                removeRear → menghapus data belakang
+            </li>
+
+            <li>
+                isEmpty → mengecek deque kosong
+            </li>
+
+            <li>
+                size → menghitung jumlah data
+            </li>
+
+        </ul>
+
+        <h2>
+            Contoh Implementasi Deque Python
+        </h2>
+
+<pre>
+def createDeque():
+    d = []
+    return d
+
+def addFront(d, data):
+    d.insert(0, data)
+
+def addRear(d, data):
+    d.append(data)
+
+def removeFront(d):
+    return d.pop(0)
+
+def removeRear(d):
+    return d.pop()
+
+def isEmpty(d):
+    return d == []
+
+def size(d):
+    return len(d)
+
+# Program utama
+
+deq = createDeque()
+
+addFront(deq, "Struktur")
+addRear(deq, "Data")
+addFront(deq, "Python")
+
+print(deq)
+
+removeRear(deq)
+
+print(deq)
+</pre>
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+['Python', 'Struktur', 'Data']
+
+['Python', 'Struktur']
+</pre>
+
+        <h2>
+            Penjelasan Coding
+        </h2>
+
+        <p>
+            Fungsi addFront digunakan untuk menambahkan
+            data di bagian depan deque menggunakan
+            insert(0,data).
+        </p>
+
+        <p>
+            Fungsi addRear digunakan untuk menambahkan
+            data di bagian belakang menggunakan append().
+        </p>
+
+        <p>
+            removeFront menghapus data paling depan,
+            sedangkan removeRear menghapus data
+            paling belakang.
+        </p>
+
+        <h2>
+            Perbedaan Stack, Queue, dan Deque
+        </h2>
+
+        <ul>
+
+            <li>
+                Stack → akses satu sisi
+            </li>
+
+            <li>
+                Queue → masuk belakang keluar depan
+            </li>
+
+            <li>
+                Deque → akses dua sisi
+            </li>
+
+        </ul>
+
+        <h2>
+            Study Kasus Deque
+        </h2>
+
+        <p>
+            Deque sering digunakan pada aplikasi browser,
+            playlist musik, dan sistem undo-redo.
+        </p>
+
+        <p>
+            Salah satu implementasi deque adalah
+            pengecekan kata palindrom.
+        </p>
+
+        <h2>
+            Pengecekan Palindrom
+        </h2>
+
+        <p>
+            Palindrom adalah kata yang tetap sama
+            jika dibaca dari depan maupun belakang.
+        </p>
+
+        <p>
+            Contoh:
+        </p>
+
+        <ul>
+
+            <li>
+                KATAK
+            </li>
+
+            <li>
+                KASUR RUSAK
+            </li>
+
+            <li>
+                MALAM
+            </li>
+
+        </ul>
+
+        <h2>
+            Contoh Program Palindrom
+        </h2>
+
+<pre>
+def createDeque():
+    return []
+
+def addRear(d, data):
+    d.append(data)
+
+def removeFront(d):
+    return d.pop(0)
+
+def removeRear(d):
+    return d.pop()
+
+def size(d):
+    return len(d)
+
+def cekPalindrom(kata):
+
+    d = createDeque()
+
+    for huruf in kata:
+        addRear(d, huruf)
+
+    cek = True
+
+    while size(d) > 1:
+
+        depan = removeFront(d)
+        belakang = removeRear(d)
+
+        if depan != belakang:
+            cek = False
+
+    return cek
+
+print(cekPalindrom("katak"))
+print(cekPalindrom("mobil"))
+</pre>
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+True
+
+False
+</pre>
+
+        <h2>
+            Kelebihan Deque
+        </h2>
+
+        <ul>
+
+            <li>
+                Fleksibel karena dua arah
+            </li>
+
+            <li>
+                Cocok untuk data dinamis
+            </li>
+
+            <li>
+                Operasi lebih cepat
+            </li>
+
+        </ul>
+
+        <h2>
+            Kekurangan Deque
+        </h2>
+
+        <ul>
+
+            <li>
+                Implementasi lebih kompleks
+            </li>
+
+            <li>
+                Penggunaan memori lebih besar
+            </li>
+
+        </ul>
+
+        <a href="index.html#materi" class="back">
+            Kembali
+        </a>
+
+    </div>
+
+</body>
+</html>

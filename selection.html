@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Materi Selection Sort</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            Catatan Struktur Data
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="index.html#home">Home</a>
+            </li>
+
+            <li>
+                <a href="index.html#materi">Materi</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- CONTENT -->
+
+    <div class="content">
+
+        <h1>
+            Selection Sort
+        </h1>
+
+        <p>
+            Selection Sort adalah algoritma sorting
+            yang bekerja dengan cara mencari nilai
+            paling kecil, kemudian menempatkannya
+            pada posisi yang sesuai.
+        </p>
+
+        <p>
+            Proses dilakukan berulang hingga seluruh
+            data berada dalam keadaan terurut.
+        </p>
+
+        <!-- KONSEP -->
+
+        <h2>
+            Konsep Selection Sort
+        </h2>
+
+        <p>
+            Pada setiap iterasi, algoritma akan
+            mencari data minimum dari array yang
+            belum terurut.
+        </p>
+
+        <p>
+            Setelah nilai minimum ditemukan,
+            data akan ditukar dengan posisi awal.
+        </p>
+
+        <!-- VISUAL -->
+
+        <h2>
+            Visualisasi Selection Sort
+        </h2>
+
+        <p>
+            Visualisasi Selection Sort dapat dilihat
+            melalui website visualizer berikut.
+        </p>
+
+        <a
+            href="https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html"
+            target="_blank"
+            class="visual-btn"
+        >
+
+            Buka Visualisasi Selection Sort
+
+        </a>
+
+        <!-- ILUSTRASI -->
+
+        <h2>
+            Ilustrasi Selection Sort
+        </h2>
+
+<pre>
+DATA AWAL
+
+[7, 2, 5, 10, 1]
+
+
+ITERASI 1
+
+Nilai minimum = 1
+
+[1, 2, 5, 10, 7]
+
+
+ITERASI 2
+
+Nilai minimum = 2
+
+[1, 2, 5, 10, 7]
+
+
+ITERASI 3
+
+Nilai minimum = 5
+
+[1, 2, 5, 10, 7]
+
+
+ITERASI 4
+
+Nilai minimum = 7
+
+[1, 2, 5, 7, 10]
+
+
+DATA SUDAH TERURUT
+</pre>
+
+        <!-- KARAKTERISTIK -->
+
+        <h2>
+            Karakteristik Selection Sort
+        </h2>
+
+        <ul>
+
+            <li>
+                Mencari nilai minimum
+            </li>
+
+            <li>
+                Menukar data sekali setiap iterasi
+            </li>
+
+            <li>
+                Cocok untuk data kecil
+            </li>
+
+            <li>
+                Algoritma sederhana
+            </li>
+
+        </ul>
+
+        <!-- ALGORITMA -->
+
+        <h2>
+            Algoritma Selection Sort
+        </h2>
+
+<pre>
+1. Cari nilai minimum
+
+2. Tukar dengan posisi awal
+
+3. Geser indeks awal
+
+4. Ulangi sampai data terurut
+</pre>
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Selection Sort
+        </h2>
+
+<pre>
+data = [7,2,5,10,1]
+
+print("Data Awal =", data)
+
+for i in range(len(data)-1):
+
+    minimum = i
+
+    for j in range(i+1, len(data)):
+
+        if data[j] < data[minimum]:
+
+            minimum = j
+
+    data[i], data[minimum] = data[minimum], data[i]
+
+print("Data Urut =", data)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+Data Awal = [7, 2, 5, 10, 1]
+
+Data Urut = [1, 2, 5, 7, 10]
+</pre>
+
+        <!-- PENJELASAN -->
+
+        <h2>
+            Penjelasan Coding
+        </h2>
+
+        <p>
+            Variabel minimum digunakan untuk
+            menyimpan indeks nilai terkecil.
+        </p>
+
+        <p>
+            Perulangan kedua digunakan untuk
+            mencari nilai minimum pada array.
+        </p>
+
+        <p>
+            Setelah nilai minimum ditemukan,
+            data ditukar dengan posisi awal.
+        </p>
+
+        <!-- ITERASI -->
+
+        <h2>
+            Visualisasi Iterasi
+        </h2>
+
+<pre>
+Iterasi 1
+
+[1, 2, 5, 10, 7]
+
+
+Iterasi 2
+
+[1, 2, 5, 10, 7]
+
+
+Iterasi 3
+
+[1, 2, 5, 10, 7]
+
+
+Iterasi 4
+
+[1, 2, 5, 7, 10]
+</pre>
+
+        <!-- STUDY KASUS -->
+
+        <h2>
+            Study Kasus Selection Sort
+        </h2>
+
+        <p>
+            Selection Sort dapat digunakan untuk
+            mengurutkan berat barang dari terkecil
+            ke terbesar.
+        </p>
+
+        <!-- PROGRAM -->
+
+        <h2>
+            Program Study Kasus
+        </h2>
+
+<pre>
+berat = [10,2,5,8,1]
+
+for i in range(len(berat)-1):
+
+    minimum = i
+
+    for j in range(i+1, len(berat)):
+
+        if berat[j] < berat[minimum]:
+
+            minimum = j
+
+    berat[i], berat[minimum] = berat[minimum], berat[i]
+
+print(berat)
+</pre>
+
+        <!-- OUTPUT -->
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+[1, 2, 5, 8, 10]
+</pre>
+
+        <!-- KELEBIHAN -->
+
+        <h2>
+            Kelebihan dan Kekurangan
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Kelebihan
+                </th>
+
+                <th>
+                    Kekurangan
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Pertukaran data sedikit
+                </td>
+
+                <td>
+                    Proses lambat untuk data besar
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Mudah dipahami
+                </td>
+
+                <td>
+                    Tidak efisien
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Memori kecil
+                </td>
+
+                <td>
+                    Kompleksitas O(n²)
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- KOMPLEKSITAS -->
+
+        <h2>
+            Kompleksitas Selection Sort
+        </h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Kasus
+                </th>
+
+                <th>
+                    Kompleksitas
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Best Case
+                </td>
+
+                <td>
+                    O(n²)
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Average Case
+                </td>
+
+                <td>
+                    O(n²)
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    Worst Case
+                </td>
+
+                <td>
+                    O(n²)
+                </td>
+
+            </tr>
+
+        </table>
+
+        <!-- BUTTON -->
+
+        <a href="index.html#materi" class="back">
+            Kembali
+        </a>
+
+    </div>
+
+</body>
+</html>

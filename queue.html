@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Materi Queue</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            Catatan Struktur Data
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="index.html#home">Home</a>
+            </li>
+
+            <li>
+                <a href="index.html#materi">Materi</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- CONTENT -->
+
+    <div class="content">
+
+        <h1>
+            Queue
+        </h1>
+
+        <p>
+            Queue atau antrian adalah struktur data linear
+            yang menggunakan konsep FIFO
+            (First In First Out).
+        </p>
+
+        <p>
+            Data yang pertama masuk akan menjadi data
+            pertama yang keluar.
+        </p>
+
+        <h2>
+            Ilustrasi Queue
+        </h2>
+
+        <p>
+            Konsep queue mirip seperti antrian di kasir.
+            Orang yang datang lebih dulu akan dilayani
+            lebih dulu.
+        </p>
+
+        <h2>
+            Karakteristik Queue
+        </h2>
+
+        <ul>
+
+            <li>
+                Menggunakan konsep FIFO
+            </li>
+
+            <li>
+                Penambahan data dilakukan di REAR
+            </li>
+
+            <li>
+                Penghapusan data dilakukan di FRONT
+            </li>
+
+            <li>
+                Data pertama lebih dulu keluar
+            </li>
+
+        </ul>
+
+        <h2>
+            Operasi Pada Queue
+        </h2>
+
+        <ul>
+
+            <li>
+                Enqueue → menambahkan data
+            </li>
+
+            <li>
+                Dequeue → menghapus data depan
+            </li>
+
+            <li>
+                isEmpty → mengecek queue kosong
+            </li>
+
+            <li>
+                Size → menghitung jumlah data
+            </li>
+
+        </ul>
+
+        <h2>
+            Contoh Implementasi Queue Python
+        </h2>
+
+<pre>
+def createQueue():
+    q = []
+    return q
+
+def enqueue(q, data):
+    q.insert(0, data)
+
+def dequeue(q):
+    data = q.pop()
+    return data
+
+def isEmpty(q):
+    return q == []
+
+def size(q):
+    return len(q)
+
+# Program utama
+
+q = createQueue()
+
+enqueue(q, 10)
+enqueue(q, 20)
+enqueue(q, 30)
+
+print(q)
+
+dequeue(q)
+
+print(q)
+</pre>
+
+        <h2>
+            Output Program
+        </h2>
+
+<pre>
+[30, 20, 10]
+
+[30, 20]
+</pre>
+
+        <h2>
+            Penjelasan Coding
+        </h2>
+
+        <p>
+            Fungsi enqueue digunakan untuk menambahkan
+            data baru ke queue menggunakan insert().
+        </p>
+
+        <p>
+            Fungsi dequeue digunakan untuk menghapus
+            data paling depan menggunakan pop().
+        </p>
+
+        <p>
+            Queue bekerja menggunakan konsep FIFO,
+            sehingga data pertama akan keluar terlebih dahulu.
+        </p>
+
+        <h2>
+            Study Kasus Queue
+        </h2>
+
+        <p>
+            Queue sering digunakan pada sistem antrian,
+            seperti antrian kasir, printer, dan rumah sakit.
+        </p>
+
+        <p>
+            Orang atau data yang datang lebih dulu
+            akan diproses lebih dulu.
+        </p>
+
+        <h2>
+            Contoh Study Kasus Antrian Kasir
+        </h2>
+
+<pre>
+antrian = []
+
+antrian.insert(0, "Andi")
+antrian.insert(0, "Budi")
+antrian.insert(0, "Citra")
+
+print(antrian)
+
+antrian.pop()
+
+print(antrian)
+</pre>
+
+        <h2>
+            Output Study Kasus
+        </h2>
+
+<pre>
+['Citra', 'Budi', 'Andi']
+
+['Citra', 'Budi']
+</pre>
+
+        <h2>
+            Simulasi Permainan Ular Naga
+        </h2>
+
+<pre>
+def createQueue():
+    return []
+
+def enqueue(q, data):
+    q.insert(0, data)
+
+def dequeue(q):
+    return q.pop()
+
+def size(q):
+    return len(q)
+
+def ularNaga(nama, hitungan):
+
+    gameQueue = createQueue()
+
+    for anak in nama:
+        enqueue(gameQueue, anak)
+
+    while size(gameQueue) > 1:
+
+        for i in range(hitungan):
+            enqueue(gameQueue, dequeue(gameQueue))
+
+        dequeue(gameQueue)
+
+    return dequeue(gameQueue)
+
+pemenang = ularNaga(
+    ['Andi','Rina','Sari','Dika'],
+    2
+)
+
+print("Pemenang =", pemenang)
+</pre>
+
+        <h2>
+            Kelebihan Queue
+        </h2>
+
+        <ul>
+
+            <li>
+                Cocok untuk sistem antrian
+            </li>
+
+            <li>
+                Data lebih teratur
+            </li>
+
+            <li>
+                Mudah diimplementasikan
+            </li>
+
+        </ul>
+
+        <h2>
+            Kekurangan Queue
+        </h2>
+
+        <ul>
+
+            <li>
+                Akses data tidak fleksibel
+            </li>
+
+            <li>
+                Hanya bisa menghapus dari depan
+            </li>
+
+        </ul>
+
+        <a href="index.html#materi" class="back">
+            Kembali
+        </a>
+
+    </div>
+
+</body>
+</html>
